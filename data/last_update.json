@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "trigger": "manual",
+  "total": 2920,
+  "revised": 1766,
+  "added": 0,
+  "removed": 0,
+  "cleared_pdfs": 0,
+  "pruned_covers": 1,
+  "shards_failed": 0,
+  "duration_ms": 1470,
+  "started_at": "2026-09-12 02:42:22",
+  "finished_at": "2026-09-12 02:42:23"
+}

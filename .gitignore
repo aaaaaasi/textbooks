@@ -1,0 +1,18 @@
+# ===== 依赖与构建产物（安装/构建即可恢复，不入库）=====
+node_modules/
+.next/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# ===== 教材 PDF（可随时从平台重新下载；data/pdfs 为预览/下载缓存，自动重建）=====
+download/*.pdf
+data/pdfs/
+
+# ===== AI 助手平台技能包（环境运行时工具，非项目代码，可经平台安装恢复）=====
+/skills/
+
+# ===== 系统杂项 =====
+.DS_Store
+Thumbs.db

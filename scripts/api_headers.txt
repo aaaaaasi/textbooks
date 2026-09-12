@@ -1,0 +1,12 @@
+HTTP/2 200 
+access-control-allow-origin: *
+alt-svc: h3=":443"; ma=2592000
+cf-ray: a33bd3575d411805-SIN
+content-type: application/json
+date: Mon, 31 Aug 2026 11:51:49 GMT
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Oln32T3Oh4sXq8%2BBeIfOjcKz%2BLZOfLHmN6dbbOy0wsNkIBsfch9jpv8UqMb8e3xGV%2BD%2F%2FBp02SbQWeZ73ebHSQsRU2zemzhbj%2FWbSU1%2BDr24JU5ZAilQeKO%2BFZrTMmMz1ekF9Z0xJ0s%3D"}]}
+server: cloudflare
+speculation-rules: "/cdn-cgi/speculation"
+via: 2.0 Caddy
+

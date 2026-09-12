@@ -1,0 +1,612 @@
+     1→## 9. AI TELLS (Forbidden Patterns)
+     2→
+     3→Avoid these signatures unless the brief explicitly asks for them.
+     4→
+     5→### 9.A Visual & CSS
+     6→* **NO neon / outer glows** by default. Use inner borders or subtle tinted shadows.
+     7→* **NO pure black (`#000000`).** Off-black, zinc-950, or charcoal.
+     8→* **NO oversaturated accents.** Desaturate to blend with neutrals.
+     9→* **NO excessive gradient text** for large headers.
+    10→* **NO custom mouse cursors.** Outdated, accessibility-hostile, perf-hostile.
+    11→
+    12→### 9.B Typography
+    13→* **AVOID Inter as default.** See Section 4.1. Override path exists.
+    14→* **NO oversized H1s** that just scream. Control hierarchy with weight + color, not raw scale.
+    15→* **Serif constraints:** Serif for editorial / luxury / publication. Not for dashboards.
+    16→
+    17→### 9.C Layout & Spacing
+    18→* **Mathematically perfect** padding and margins. No floating elements with awkward gaps.
+    19→* **NO 3-column equal feature cards.** The generic "three identical cards horizontally" feature row is banned. Use 2-column zig-zag, asymmetric grid, scroll-pinned, or horizontal-scroll alternative.
+    20→
+    21→### 9.D Content & Data ("Jane Doe" Effect)
+    22→* **NO generic names.** "John Doe", "Sarah Chan", "Jack Su" → use creative, realistic, locale-appropriate names.
+    23→* **NO generic avatars.** No SVG "egg" or Lucide user icons → use believable photo placeholders or specific styling.
+    24→* **NO fake-perfect numbers.** Avoid `99.99%`, `50%`, `1234567`. Use organic, messy data (`47.2%`, `+1 (312) 847-1928`).
+    25→* **NO startup-slop brand names.** "Acme", "Nexus", "SmartFlow", "Cloudly" → invent contextual, premium names that sound real.
+    26→* **NO filler verbs.** "Elevate", "Seamless", "Unleash", "Next-Gen", "Revolutionize" → concrete verbs only.
+    27→
+    28→### 9.E External Resources & Components
+    29→* **NO hand-rolled SVG icons.** Use Phosphor / HugeIcons / Radix / Tabler. Lucide on explicit request only.
+    30→* **Hand-rolled decorative SVGs strongly discouraged** as default (see Section 4.8).
+    31→* **NO div-based fake screenshots.** Never build a fake product UI out of `<div>` rectangles to simulate a screenshot. Use real images, generated images, or skip the preview.
+    32→* **NO broken Unsplash links.** Use `https://picsum.photos/seed/{descriptive-string}/{w}/{h}`, or generated photo placeholders, or actual assets.
+    33→* **shadcn/ui customization:** Allowed, but NEVER in default state. Customize radii, colors, shadows, typography to the project aesthetic.
+    34→* **Production-Ready Cleanliness:** Code visually clean, memorable, meticulously refined.
+    35→
+    36→### 9.F Production-Test Tells (banned outright)
+    37→
+    38→These patterns came out of real LLM-generated landing-page tests. They are the signatures the model defaults to when it tries to "look designed." Treat them as hard bans unless the brief explicitly calls for one.
+    39→
+    40→**Hero & top-of-page**
+    41→* **NO version labels in the hero.** `V0.6`, `v2.0`, `BETA`, `INVITE-ONLY PREVIEW`, `EARLY ACCESS`, `ALPHA` - banned as default eyebrows. Only acceptable when the brief is explicitly about a product launch / preview status.
+    42→* **NO "Brand · No. 01"-style sub-eyebrows.** "Marrow · No. 01 · The 6-quart" type micro-meta lines. Skip them.
+    43→
+    44→**Section numbering & micro-labels**
+    45→* **NO section-number eyebrows.** `00 / INDEX`, `001 · Capabilities`, `002 · Featured commission`, `06 · how it works`, `05 · The honest table` - banned. Eyebrows should name the topic in plain language, not enumerate.
+    46→* **NO `01 / 4`-style pagination on images or bento tiles.** If the user can count, they don't need the label.
+    47→* **NO `Scroll · 001 Capabilities`-style scroll cues.** A simple arrow or "Scroll" is enough; no section-number prefix.
+    48→* **NO "Index of Work, 2018 - 2026"-style range labels** as eyebrows. Just say what the section is.
+    49→
+    50→**Separators & dots**
+    51→* **The middle-dot (`·`) is rationed.** Maximum 1 per line in metadata strips. Do NOT use it as the default separator for everything ("foo · bar · baz · qux · quux"). If you need a separator family, prefer line breaks, hairlines, or columns.
+    52→* **NO decorative colored status dots on every list/nav/badge.** A colored dot before "ONE Q4 SLOT OPEN" or before every nav link, or every task row - banned by default. Acceptable only when the dot conveys actual semantic state (a server status, an availability flag) and is used sparingly.
+    53→
+    54→**Em-dashes & typography flourishes**
+    55→* **NO em-dash (`—`) as a design element OR anywhere else.** See Section 9.G below for the complete, non-negotiable ban. The em-dash character is forbidden in headlines, eyebrows, pills, body copy, quotes, attribution, captions, button text, and alt text. Use the regular hyphen (`-`).
+    56→* **NO `<br>`-broken-and-italicized headlines** as a default "design move." "for thirty\<br\>*years.*" type splits. Headlines should read naturally first, get clever only when the brief demands it.
+    57→* **NO vertical rotated text** ("INDEX OF WORK, 2018 - 2026" rotated 90°). Agency-portfolio cliché. Use it only when the brief is explicitly agency / Awwwards / experimental AND it serves a real composition purpose.
+    58→* **NO crosshair / hairline grid lines as decoration.** Vertical and horizontal lines drawn just to make the page "feel designed" - banned. Use them only when they organize real content.
+    59→
+    60→**Fake product previews**
+    61→* **NO div-based fake product UI in the hero** (fake task list, fake terminal, fake dashboard built from styled divs). It is the #1 LLM-design Tell. Use a real screenshot, a generated image, a real component preview, or none at all.
+    62→* **NO fake version footers** ("v0.6.2-rc.1", "last sync 4s ago · main") inside fake screenshots. Adds nothing, screams AI.
+    63→
+    64→**Marketing-copy Tells**
+    65→* **NO "Quietly in use at" / "Quietly trusted by"** social-proof headers. Use natural language: "Trusted by", "Used at", "Customers include", or skip the heading entirely if the logos speak.
+    66→* **NO "From the field" / "Field notes" / "Currently on the bench" / "On our desks" / "Loose plates" style poetic labels** on quote, blog, or sidebar sections. Reads as performative-craftsman. Use plain functional labels ("Testimonials", "Latest writing", "Now working on") or skip the label.
+    67→* **NO "We respect the French ones"-style** mock-humble industry-references in body copy. Cute and AI-y.
+    68→* **NO weather / locale strips** ("LIS 14:23 · 18°C") in headers/footers unless the brief is explicitly about a place / time-zone-distributed studio.
+    69→* **NO micro-meta-sentences under eyebrows.** Sentences like *"Each of these is a feature we ship today, not a roadmap promise. The list will stay short on purpose."* sitting under a section heading are clutter. Eyebrow + Headline + Body is enough.
+    70→* **NO generic step labels.** "Stage 1 / Stage 2 / Stage 3", "Step 1 / Step 2 / Step 3", "Phase 01 / Phase 02 / Phase 03", "Pass One / Pass Two / Pass Three". Banned. The actual step content is the label. If you must show progression, use the verb-noun directly ("Install", "Configure", "Ship") not "Stage 1: Install".
+    71→
+    72→**Pills, labels and version stamps**
+    73→* **NO pills/labels/tags overlaid on images.** No `<span>` overlays on photos with tags like `Brand · 02`, `PLATE · BRAND`, `Field notes - journal`. Either let the image speak alone, or add a caption directly below (outside the image).
+    74→* **NO photo-credit captions as decoration.** Strings like `Field study no. 12 · Ines Caetano`, `Plate 03 · House archive`, `Frame XII · 35mm` under stock/picsum images are pretentious. Photo credit is allowed ONLY when there is a real photographer being credited for a real photo (with permission). Otherwise: skip the caption or use a one-line functional caption ("The 6-quart, in Sage.").
+    75→* **NO version footers on marketing pages.** Footer strings like `v1.4.2`, `Build 0048`, `last sync 4s ago · main` are CLI / devtool fixtures, not landing-page content. Banned on marketing/landing/portfolio pages.
+    76→* **NO "Reservation 412 of 800"-style live-stock counters** as decoration. Only if the brief is explicitly a limited-run waitlist with real data.
+    77→
+    78→**Decoration text strips**
+    79→* **NO decoration text strip at hero bottom.** Patterns like `BRAND. MOTION. SPATIAL.`, `TYPE / FORM / MOTION`, `DESIGN · BUILD · SHIP`, `ESTD. 2018 · LISBON · BRAND. MOTION. SPATIAL.` as a small mono-caps strip across the bottom of the hero are an agency-portfolio cliché. Banned by default. Only acceptable when the strip carries real, navigable links (sticky bottom nav) or real status info (cookie banner, build info on a docs site).
+    80→* **NO floating top-right sub-text in section headings.** Pattern: section has a giant left-aligned headline; in the top-right corner of the same section header there is a small explainer paragraph floating with no clear alignment to anything else. That floater is the Tell. Either put the sub-text directly under the headline, or build a clean 2-column header (left: headline, right: aligned body), but not a tiny corner paragraph.
+    81→
+    82→**Lists, dividers and scoring**
+    83→* **NO `border-t` + `border-b` on every row of a long list / spec table.** Pick one (bottom-border between rows OR top-border above the group) and use it sparsely. A 10-row spec table with hairlines under each row is the laziest layout - see Section 4.9 for alternative UI components.
+    84→* **NO scoring/progress bars with filled background tracks** as comparison visuals. If you need to show "X out of Y" comparisons, prefer a number + small icon, or a tiny inline bar WITHOUT a background track. Big filled `bg-zinc-200` tracks with a partial fill on top are dashboard-UI clutter on a landing page.
+    85→
+    86→**Locale, time, scroll cues**
+    87→* **Locale / city-name / time / weather strips are banned for 99% of briefs.** "Lisbon, working with founders" in the hero, "1200-690 Lisbon, Portugal" in the footer, "Lisbon 14:23 · 18°C" in the nav. These are agency-portfolio decoration tells. Allowed ONLY when: the brief explicitly describes a globally-distributed studio with timezone-relevant work, OR a travel-focused brand, OR a real-world physical venue. A single contact-address mention in the footer is fine; an atmospheric locale strip is not.
+    88→* **Scroll cues are banned.** `Scroll`, `↓ scroll`, `Scroll to explore`, `Scroll to walk through it`, animated mouse-wheel icons. If the user has not scrolled yet, they are looking at the hero. They know what scroll is. The bottom of the viewport does not need a label.
+    89→* **ZERO decorative status dots by default.** A coloured dot before nav items, before list rows, before badges, before status labels is a Tell. Only acceptable when conveying real semantic state (a live indicator on actual server status, a live availability flag) and limited to one per page section.
+    90→
+    91→### 9.G EM-DASH BAN (the single most-violated Tell)
+    92→
+    93→**Em-dash (`—`) is COMPLETELY banned.** It is the LLM's signature stylistic crutch and it is the #1 visual Tell in production tests. There is no "limited use" allowance, no "natural language frequency" allowance, no "in body copy is fine" allowance. None.
+    94→
+    95→* **Banned in headlines.** Use a period or a comma.
+    96→* **Banned in eyebrows / labels / pills / button text / image captions / nav items.** Replace with line breaks, columns, or hairlines.
+    97→* **Banned in body copy.** Restructure the sentence: two sentences with a period, OR a comma, OR parentheses, OR a colon.
+    98→* **Banned in quote attribution.** Use a normal hyphen with spaces (` - `) or a line break + smaller-weight name.
+    99→* **Banned in en-dash form too (`–`) when used as a separator.** Date ranges (`2018-2026`) use a hyphen. Number ranges (`€40-80k`) use a hyphen.
+   100→
+   101→The ONLY permitted dash characters on the page are:
+   102→* Regular hyphen `-` (for compound words, ranges, line dividers in markup)
+   103→* Minus sign in math (`-5°C`)
+   104→
+   105→If your output contains a single `—` or `–` anywhere visible to the user, the output fails the Pre-Flight Check and must be rewritten.
+   106→
+   107→This rule is non-negotiable. The agent has historically ignored em-dash limits when phrased as "use sparingly." The phrasing here is binary: zero em-dashes.
+   108→
+   109→---
+   110→
+   111→## 10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know)
+   112→
+   113→This is a vocabulary, not a library. The agent should KNOW these pattern names to communicate about them, design with them in mind, and reach for them when the design read calls for them. **Implementations and code sketches live in the Block Library (Section 12), which is populated iteratively.**
+   114→
+   115→### Hero Paradigms
+   116→* **Asymmetric Split Hero** - Text on one side, asset on the other, generous white space.
+   117→* **Editorial Manifesto Hero** - Large type, no asset, almost-poster.
+   118→* **Video / Media Mask Hero** - Type cut out as mask over video background.
+   119→* **Kinetic-Type Hero** - Animated typography as the primary visual.
+   120→* **Curtain-Reveal Hero** - Hero parts on scroll like a curtain.
+   121→* **Scroll-Pinned Hero** - Hero stays pinned while content scrolls behind.
+   122→
+   123→### Navigation & Menus
+   124→* **Mac OS Dock Magnification** - Edge nav, icons scale fluidly on hover.
+   125→* **Magnetic Button** - Pulls toward cursor.
+   126→* **Gooey Menu** - Sub-items detach like viscous liquid.
+   127→* **Dynamic Island** - Morphing pill for status / alerts.
+   128→* **Contextual Radial Menu** - Circular menu expanding at click point.
+   129→* **Floating Speed Dial** - FAB springing into curved secondary actions.
+   130→* **Mega Menu Reveal** - Full-screen dropdown, stagger-fade content.
+   131→
+   132→### Layout & Grids
+   133→* **Bento Grid** - Asymmetric tile grouping (Apple Control Center).
+   134→* **Masonry Layout** - Staggered grid, no fixed row height.
+   135→* **Chroma Grid** - Borders / tiles with subtle animating gradients.
+   136→* **Split-Screen Scroll** - Two halves sliding in opposite directions.
+   137→* **Sticky-Stack Sections** - Sections that pin and stack on scroll.
+   138→
+   139→### Cards & Containers
+   140→* **Parallax Tilt Card** - 3D tilt tracking mouse coordinates.
+   141→* **Spotlight Border Card** - Borders illuminate under cursor.
+   142→* **Glassmorphism Panel** - Frosted glass with inner refraction.
+   143→* **Holographic Foil Card** - Iridescent rainbow shift on hover.
+   144→* **Tinder Swipe Stack** - Physical card stack, swipe-away.
+   145→* **Morphing Modal** - Button expands into its own dialog.
+   146→
+   147→### Scroll Animations
+   148→* **Sticky Scroll Stack** - Cards stick and physically stack.
+   149→* **Horizontal Scroll Hijack** - Vertical scroll → horizontal pan.
+   150→* **Locomotive / Sequence Scroll** - Video / 3D sequence tied to scrollbar.
+   151→* **Zoom Parallax** - Central background image zooming on scroll.
+   152→* **Scroll Progress Path** - SVG line drawing along scroll.
+   153→* **Liquid Swipe Transition** - Page transition like viscous liquid.
+   154→
+   155→### Galleries & Media
+   156→* **Dome Gallery** - 3D panoramic gallery.
+   157→* **Coverflow Carousel** - 3D carousel with angled edges.
+   158→* **Drag-to-Pan Grid** - Boundless draggable canvas.
+   159→* **Accordion Image Slider** - Narrow strips expanding on hover.
+   160→* **Hover Image Trail** - Mouse leaves popping image trail.
+   161→* **Glitch Effect Image** - RGB-channel shift on hover.
+   162→
+   163→### Typography & Text
+   164→* **Kinetic Marquee** - Endless text bands reversing on scroll.
+   165→* **Text Mask Reveal** - Massive type as transparent window to video.
+   166→* **Text Scramble Effect** - Matrix-style decoding on load / hover.
+   167→* **Circular Text Path** - Text curving along spinning circle.
+   168→* **Gradient Stroke Animation** - Outlined text with running gradient.
+   169→* **Kinetic Typography Grid** - Letters dodging the cursor.
+   170→
+   171→### Micro-Interactions & Effects
+   172→* **Particle Explosion Button** - CTA shatters into particles on success.
+   173→* **Liquid Pull-to-Refresh** - Reload indicator like detaching droplets.
+   174→* **Skeleton Shimmer** - Shifting light reflection across placeholders.
+   175→* **Directional Hover-Aware Button** - Fill enters from cursor's exact side.
+   176→* **Ripple Click Effect** - Wave from click coordinates.
+   177→* **Animated SVG Line Drawing** - Vectors drawing themselves in real time.
+   178→* **Mesh Gradient Background** - Organic lava-lamp blobs.
+   179→* **Lens Blur Depth** - Background UI blurred to focus foreground action.
+   180→
+   181→### Animation Library Choice
+   182→* **Motion (`motion/react`)** - default for UI / Bento / state-change motion.
+   183→* **GSAP + ScrollTrigger** - for full-page scrolltelling and scroll hijacks. Isolate in dedicated leaf components with `useEffect` cleanup.
+   184→* **Three.js / WebGL** - for canvas backgrounds and 3D scenes. Same isolation rule.
+   185→* **NEVER mix GSAP / Three.js with Motion in the same component tree.** They fight over the same frames.
+   186→
+   187→---
+   188→
+   189→## 11. REDESIGN PROTOCOL
+   190→
+   191→This skill handles **greenfield builds AND redesigns**. Misclassifying the mode is the single biggest source of bad redesign output.
+   192→
+   193→### 11.A Detect the Mode (first action)
+   194→* **Greenfield** - no existing site, or full overhaul approved. Dial baseline from Section 1.
+   195→* **Redesign - Preserve** - modernise without breaking the brand. Audit first, extract brand tokens, evolve gradually.
+   196→* **Redesign - Overhaul** - new visual language on top of existing content. Treat as greenfield for visuals; preserve content and IA.
+   197→
+   198→If ambiguous, ask **once**: *"Should this redesign preserve the existing brand, or are we starting visually from scratch?"*
+   199→
+   200→### 11.B Audit Before Touching
+   201→Document the current state before proposing changes:
+   202→* **Brand tokens** - primary / accent colors, type stack, logo treatment, radii.
+   203→* **Information architecture** - page tree, primary nav, key conversion paths.
+   204→* **Content blocks** - what exists, what's doing work, what's filler.
+   205→* **Patterns to preserve** - signature interactions, recognisable hero, copy voice.
+   206→* **Patterns to retire** - AI-slop tells, broken layouts, dead links, generic stock imagery, perf traps.
+   207→* **Dial reading of the existing site** - infer current `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY`. That's your starting point, not the baseline.
+   208→* **SEO baseline** - current ranking pages, meta titles, structured data, OG cards. **SEO migration is the #1 redesign risk.**
+   209→
+   210→### 11.C Preservation Rules
+   211→* **Do not change information architecture** unless asked. Keep page slugs, anchor IDs, primary nav labels stable for SEO and muscle memory.
+   212→* **Extract brand colors before applying Section 4.2.** A brand that is already purple stays purple - apply the LILA RULE's override.
+   213→* **Preserve copy voice** unless asked for a rewrite. Visual modernisation ≠ content rewrite.
+   214→* **Honor existing accessibility wins.** Do not regress focus states, alt text, keyboard nav, contrast.
+   215→* **Respect existing analytics events.** Do not rename buttons, form fields, section IDs that downstream tracking depends on.
+   216→
+   217→### 11.D Modernisation Levers (priority order)
+   218→Apply in order - stop when the brief is satisfied:
+   219→1. **Typography refresh** - biggest visual lift per unit of risk.
+   220→2. **Spacing & rhythm** - increase section padding, fix vertical rhythm.
+   221→3. **Color recalibration** - desaturate, unify neutrals, keep brand accent.
+   222→4. **Motion layer** - add `MOTION_INTENSITY`-appropriate micro-interactions to existing components.
+   223→5. **Hero & key-section recomposition** - restructure top-of-funnel using Section 10 vocabulary.
+   224→6. **Full block replacement** - only when the existing block is unsalvageable.
+   225→
+   226→### 11.E Decision Tree: Targeted Evolution vs Full Redesign
+   227→* IA, content, and SEO sound → **targeted evolution** (Levers 1-4). ~70% of value at ~40% of risk.
+   228→* Visual debt is structural (broken IA, no design system, broken mobile) → **full redesign** with strict content preservation.
+   229→* Brand itself is changing → **greenfield**.
+   230→
+   231→### 11.F What Never Changes Silently
+   232→Never modify without explicit user approval:
+   233→* URL structure / route slugs.
+   234→* Primary nav labels.
+   235→* Form field names or order (breaks analytics + autofill).
+   236→* Brand logo or wordmark.
+   237→* Existing legal / consent / cookie copy.
+   238→
+   239→---
+   240→
+   241→## 12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)
+   242→
+   243→The Reference Vocabulary (Section 10) names patterns. The Block Library implements them with real props, real motion specs, and real code sketches.
+   244→
+   245→**Status:** schema defined here. Blocks will be added iteratively. Do not freelance new blocks without following this schema.
+   246→
+   247→### 12.A File Location
+   248→```
+   249→skills/taste-skill/blocks/
+   250→  hero/
+   251→    asymmetric-split.md
+   252→    editorial-manifesto.md
+   253→    kinetic-type.md
+   254→    ...
+   255→  feature/
+   256→    bento-grid.md
+   257→    sticky-scroll-stack.md
+   258→    zig-zag.md
+   259→    ...
+   260→  social-proof/
+   261→  pricing/
+   262→  cta/
+   263→  footer/
+   264→  navigation/
+   265→  portfolio/
+   266→  transition/
+   267→```
+   268→
+   269→### 12.B Required Frontmatter
+   270→```yaml
+   271→---
+   272→name: asymmetric-split-hero
+   273→category: hero
+   274→dial_compatibility:
+   275→  variance: [6, 10]
+   276→  motion: [3, 10]
+   277→  density: [2, 5]
+   278→when_to_use: "Landing pages with one strong asset and one strong message. Default hero for SaaS, agency, premium consumer."
+   279→not_for: "Editorial / manifesto launches where the message IS the design."
+   280→stack: ["react", "next", "tailwind", "motion"]
+   281→---
+   282→```
+   283→
+   284→### 12.C Required Body Sections
+   285→1. **Visual sketch** - short ASCII or description of the layout.
+   286→2. **Props API** - the component's interface.
+   287→3. **Code sketch** - minimal working implementation (Server Component default, Client island for motion).
+   288→4. **Mobile fallback** - explicit collapse rules for `< 768px`.
+   289→5. **Motion variants** - one variant per `MOTION_INTENSITY` band (1-3, 4-7, 8-10). Reduced-motion fallback explicit.
+   290→6. **Dark-mode notes** - token strategy specific to this block.
+   291→7. **Anti-patterns** - common ways this block goes wrong.
+   292→8. **References** - links to real examples in production.
+   293→
+   294→### 12.D Block-Library Discipline
+   295→* One block per file. No multi-block files.
+   296→* Every block must work standalone (drop it into a page, it renders).
+   297→* Every block must pass the Pre-Flight Check (Section 14).
+   298→* Blocks that depend on a design system from Section 2.A live under `blocks/<category>/<name>--<system>.md` (e.g. `feature/bento-grid--material.md`).
+   299→
+   300→---
+   301→
+   302→## 13. OUT OF SCOPE
+   303→
+   304→This skill is NOT for:
+   305→* Dashboards / dense product UI / admin panels (use Fluent, Carbon, Atlassian, or Polaris from Section 2.A).
+   306→* Data tables (use TanStack Table or AG Grid).
+   307→* Multi-step forms / wizards (use Form-specific patterns; this skill won't make them better).
+   308→* Code editors (use Monaco / CodeMirror with their official skinning).
+   309→* Native mobile (use Apple HIG / Material directly).
+   310→* Realtime collab UIs (presence, cursors, OT-aware - different problem class).
+   311→
+   312→If the brief is one of the above, **say so explicitly**, point to the right tool, and only apply this skill's marketing-page / about-page / landing-page parts to the surfaces where they apply.
+   313→
+   314→---
+   315→
+   316→## 14. FINAL PRE-FLIGHT CHECK
+   317→
+   318→Run this matrix before outputting code. This is the last filter.
+   319→
+   320→**THIS IS NOT OPTIONAL. Run every box. If any box fails, the output is not done.**
+   321→
+   322→- [ ] **Brief inference** declared (Section 0.B one-liner)?
+   323→- [ ] **Dial values** explicit and reasoned from the brief, not silently using baseline?
+   324→- [ ] **Design system** chosen from Section 2 if applicable, or aesthetic labeled honestly?
+   325→- [ ] **Redesign mode** detected and audit performed (if applicable, Section 11)?
+   326→- [ ] **ZERO em-dashes (`—`) anywhere on the page.** Headlines, eyebrows, pills, body, quotes, attribution, captions, buttons, alt text. Zero. (Section 9.G - non-negotiable.)
+   327→- [ ] **Page Theme Lock**: ONE theme (light, dark, or auto) for the whole page. No section flips to inverted mode mid-page (Section 4.11)?
+   328→- [ ] **Color Consistency Lock**: one accent color used identically across all sections (Section 4.2)?
+   329→- [ ] **Shape Consistency Lock**: one corner-radius system applied consistently (Section 4.4)?
+   330→- [ ] **Button Contrast Check**: every CTA text is readable against its background (no white-on-white, WCAG AA 4.5:1)?
+   331→- [ ] **CTA Button Wrap**: no CTA label wraps to 2+ lines at desktop?
+   332→- [ ] **Form Contrast Check**: form inputs, placeholders, focus rings, labels all pass WCAG AA against the section background?
+   333→- [ ] **Serif discipline**: if a serif is used, it is NOT Fraunces or Instrument_Serif (or it is, with explicit brand justification)? Different serif from your previous project?
+   334→- [ ] **Premium-consumer palette check**: if the brief is premium-consumer (cookware / wellness / artisan / luxury), the palette is NOT the AI-default beige+brass+oxblood+espresso family? Different family from your previous premium-consumer project?
+   335→- [ ] **Italic descender clearance**: every italic word with `y g j p q` has `leading-[1.1]` min + `pb-1` reserve?
+   336→- [ ] **Hero fits the viewport**: headline ≤ 2 lines, subtext ≤ 20 words AND ≤ 4 lines, CTA visible without scroll, font scale planned around image?
+   337→- [ ] **Hero top padding**: max `pt-24` at desktop, hero content does not float halfway down the viewport?
+   338→- [ ] **Hero stack discipline**: max 4 text elements in hero (eyebrow OR brand strip, headline, subtext, CTAs)? No tiny tagline below CTAs, no trust micro-strip in hero?
+   339→- [ ] **EYEBROW COUNT (mechanical)**: count instances of `uppercase tracking` micro-labels above section headlines across all components. Count ≤ ceil(sectionCount / 3)? Hero counts as 1.
+   340→- [ ] **Split-Header Ban**: no "left big headline + right small explainer paragraph" pattern as a section header (vertical stack instead)?
+   341→- [ ] **Zigzag Alternation Cap**: no 3+ consecutive sections with the same image+text-split layout?
+   342→- [ ] **No Duplicate CTA Intent**: no two CTAs with the same intent ("Get in touch" + "Let's talk" both on page = Fail)?
+   343→- [ ] **Logo wall = logo only**: no industry / category labels printed below logos?
+   344→- [ ] **Bento Background Diversity**: at least 2-3 bento cells have real visual variation (image, gradient, pattern), not all white-on-white text cards?
+   345→- [ ] **"Used by / Trusted by" logo wall** lives UNDER the hero, not inside it, uses REAL SVG logos (Simple Icons / devicon) or generated SVG marks, NOT plain text wordmarks?
+   346→- [ ] **Copy Self-Audit**: every visible string re-read, no grammatically-broken or AI-hallucinated phrases ("free on its past" type) shipped?
+   347→- [ ] **Motion motivated**: every animation can be justified in one sentence (hierarchy / storytelling / feedback / state transition), no GSAP-for-show?
+   348→- [ ] **Marquee max-one-per-page**: no two horizontal marquees on the same page?
+   349→- [ ] **Navigation on ONE line** at desktop, height ≤ 80px?
+   350→- [ ] **Section-Layout-Repetition** check: no two sections share the same layout family (at least 4 different families across 8 sections)?
+   351→- [ ] **Bento has rhythm AND exact cell count** (N items → N cells, no empty cells in middle or at end)?
+   352→- [ ] **Long lists use the right UI component** (not default `<ul>` with `divide-y` for > 5 items - see Section 4.9 alternatives)?
+   353→- [ ] **Real images used** (gen-tool first, then Picsum-seed, then explicit placeholder slots) - NO div-based fake screenshots, NO hand-rolled decorative SVGs, NO pure-text minimalism?
+   354→- [ ] **No pills/labels overlaid on images** (no `Plate · Brand`, no `Field notes - journal`)?
+   355→- [ ] **No photo-credit captions as decoration** (`Field study no. 12 · Ines Caetano`)?
+   356→- [ ] **No version footers** (`v1.4.2`, `Build 0048`) on marketing pages?
+   357→- [ ] **No micro-meta-sentences** under eyebrows ("Each of these is a feature we ship today...")?
+   358→- [ ] **No decoration text strip at hero bottom** (`BRAND. MOTION. SPATIAL.`)?
+   359→- [ ] **No floating top-right sub-text** in section headings?
+   360→- [ ] **No scoring/progress bars with filled background tracks** as comparison visuals?
+   361→- [ ] **No locale / city-name / time / weather strips** unless brief is genuinely globally-distributed or place-focused?
+   362→- [ ] **No scroll cues** (`Scroll`, `↓ scroll`, `Scroll to explore`)?
+   363→- [ ] **No version labels in hero** (V0.6, BETA, INVITE-ONLY) unless the brief is a launch?
+   364→- [ ] **No section-numbering eyebrows** (`00 / INDEX`, `001 · Capabilities`, `06 · how it works`)?
+   365→- [ ] **No decorative dots** (zero by default, only for real semantic state)?
+   366→- [ ] **No `border-t` + `border-b` on every row** of long lists / spec tables?
+   367→- [ ] **Content density** sane: no 20-row data tables, no fake-precise specs without justification, ≤ 25-word sub-paragraphs by default?
+   368→- [ ] **Quotes ≤ 3 lines** of body, attribution clean (no em-dash)?
+   369→- [ ] **Motion claimed = motion shown**: if `MOTION_INTENSITY > 4`, page actually animates, not just claimed?
+   370→- [ ] **GSAP sticky-stack / horizontal-pan** implemented per Section 5.A / 5.B canonical skeleton (`start: "top top"`, `pin: true`, correct scrub)?
+   371→- [ ] **No `window.addEventListener('scroll')`** - using Motion `useScroll()` / ScrollTrigger / IntersectionObserver / CSS scroll-driven animations only?
+   372→- [ ] **Reduced motion** wrapped for everything `MOTION_INTENSITY > 3`?
+   373→- [ ] **Dark mode** tokens defined and tested in both modes?
+   374→- [ ] **Mobile collapse** explicit (`w-full`, `px-4`, `max-w-7xl mx-auto`) for high-variance layouts?
+   375→- [ ] **Viewport stability**: `min-h-[100dvh]`, never `h-screen`?
+   376→- [ ] **`useEffect` animations** have strict cleanup functions?
+   377→- [ ] **Empty / loading / error** states provided?
+   378→- [ ] **Cards omitted** in favor of spacing where possible?
+   379→- [ ] **Icons** from an allowed library only (Phosphor / HugeIcons / Radix / Tabler), no hand-rolled SVG paths?
+   380→- [ ] **Motion** isolated in client-leaf components with `'use client'` at the top, memoized?
+   381→- [ ] **No AI Tells** from Section 9 (Inter as default, AI-purple, three-equal cards, Jane Doe, Acme, "Quietly in use at")?
+   382→- [ ] **Core Web Vitals** plausibly hit (LCP < 2.5s, INP < 200ms, CLS < 0.1)?
+   383→- [ ] **One design system** per project (no Material + shadcn mixed)?
+   384→
+   385→If a single checkbox cannot be honestly ticked, the page is not done. Fix it before delivering.
+   386→
+   387→---
+   388→
+   389→# APPENDICES - Real Source-Backed Reference Material
+   390→
+   391→The sections below are vendored reference content. They give the agent real install commands, real canonical doc links, and real working starter snippets for each design system named in Section 2. Use them to ground decisions in production reality, not training-data fiction.
+   392→
+   393→## Appendix A - Install Commands per Design System
+   394→
+   395→```bash
+   396→# Material Web (Material 3)
+   397→npm install @material/web
+   398→
+   399→# Fluent UI React (v9)
+   400→npm install @fluentui/react-components
+   401→
+   402→# Fluent UI Web Components (framework-free)
+   403→npm install @fluentui/web-components @fluentui/tokens
+   404→
+   405→# IBM Carbon
+   406→npm install @carbon/react @carbon/styles
+   407→
+   408→# Radix Themes
+   409→npm install @radix-ui/themes
+   410→
+   411→# shadcn/ui (open code, owned components)
+   412→npx shadcn@latest init
+   413→npx shadcn@latest add button card badge separator input
+   414→
+   415→# Primer CSS (GitHub product/devtool UI)
+   416→npm install --save @primer/css
+   417→
+   418→# Primer Brand (GitHub marketing UI)
+   419→npm install @primer/react-brand
+   420→
+   421→# GOV.UK Frontend
+   422→npm install govuk-frontend
+   423→
+   424→# USWDS (US Web Design System)
+   425→npm install uswds
+   426→
+   427→# Atlassian Design System (Atlaskit)
+   428→yarn add @atlaskit/css-reset @atlaskit/tokens @atlaskit/button @atlaskit/badge @atlaskit/section-message @atlaskit/card
+   429→
+   430→# Bootstrap 5.3
+   431→npm install bootstrap
+   432→
+   433→# Shopify Polaris Web Components (Shopify apps only)
+   434→# Add this to your app HTML head:
+   435→#   <meta name="shopify-api-key" content="%SHOPIFY_API_KEY%" />
+   436→#   <script src="https://cdn.shopify.com/shopifycloud/polaris.js"></script>
+   437→```
+   438→
+   439→## Appendix B - Canonical Sources (read these before reinventing)
+   440→
+   441→### Material Web
+   442→- https://github.com/material-components/material-web
+   443→- https://material-web.dev/theming/material-theming/
+   444→- https://m3.material.io/develop/web
+   445→
+   446→### Fluent UI
+   447→- https://fluent2.microsoft.design/get-started/develop
+   448→- https://fluent2.microsoft.design/components/web/react/
+   449→- https://github.com/microsoft/fluentui
+   450→- https://learn.microsoft.com/en-us/fluent-ui/web-components/
+   451→
+   452→### Carbon
+   453→- https://carbondesignsystem.com/
+   454→- https://github.com/carbon-design-system/carbon
+   455→- https://carbondesignsystem.com/developing/react-tutorial/overview/
+   456→- https://carbondesignsystem.com/developing/web-components-tutorial/overview/
+   457→
+   458→### Shopify Polaris
+   459→- https://shopify.dev/docs/api/app-home/web-components
+   460→- https://github.com/Shopify/polaris-react
+   461→- https://polaris-react.shopify.com/components
+   462→
+   463→### Atlassian
+   464→- https://atlassian.design/get-started/develop
+   465→- https://atlassian.design/components/button/examples
+   466→- https://atlaskit.atlassian.com/packages/design-system/button/example/disabled
+   467→- https://atlassian.design/tokens/design-tokens
+   468→
+   469→### Primer
+   470→- https://primer.style/
+   471→- https://github.com/primer/css
+   472→- https://github.com/primer/brand
+   473→
+   474→### GOV.UK
+   475→- https://design-system.service.gov.uk/components/button/
+   476→- https://design-system.service.gov.uk/styles/layout/
+   477→- https://github.com/alphagov/govuk-frontend
+   478→
+   479→### USWDS
+   480→- https://designsystem.digital.gov/documentation/developers/
+   481→- https://designsystem.digital.gov/components/button/
+   482→- https://designsystem.digital.gov/components/card/
+   483→- https://github.com/uswds/uswds
+   484→
+   485→### Bootstrap
+   486→- https://getbootstrap.com/docs/5.3/layout/grid/
+   487→- https://getbootstrap.com/docs/5.3/components/card/
+   488→
+   489→### Tailwind
+   490→- https://tailwindcss.com/docs/dark-mode
+   491→- https://tailwindcss.com/blog/tailwindcss-v4
+   492→
+   493→### Radix
+   494→- https://www.radix-ui.com/themes/docs/components/theme
+   495→- https://www.radix-ui.com/themes/docs/components/card
+   496→- https://github.com/radix-ui/themes
+   497→
+   498→### shadcn/ui
+   499→- https://ui.shadcn.com/docs
+   500→- https://ui.shadcn.com/docs/components/card
+   501→- https://github.com/shadcn-ui/ui
+   502→
+   503→### Native CSS / W3C standards
+   504→- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter
+   505→- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme
+   506→- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion
+   507→- https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout
+   508→- https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations
+   509→- https://drafts.csswg.org/scroll-animations-1/
+   510→
+   511→### Apple Liquid Glass (Apple platforms only)
+   512→- https://developer.apple.com/design/human-interface-guidelines/materials
+   513→- https://developer.apple.com/documentation/TechnologyOverviews/liquid-glass
+   514→- https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass
+   515→- https://developer.apple.com/documentation/SwiftUI/Material
+   516→
+   517→---
+   518→
+   519→## Appendix C - Apple Liquid Glass: Honest Web Approximation
+   520→
+   521→Do **not** treat random CSS snippets as official Apple Liquid Glass.
+   522→
+   523→### What is official
+   524→Apple documents Liquid Glass inside Apple's Human Interface Guidelines and Developer Documentation for **Apple platforms**. It is a dynamic material used across Apple platform UI. Apple's native implementation belongs to Apple platform APIs and system components, **not a public web CSS package**.
+   525→
+   526→Relevant official docs:
+   527→- Apple Human Interface Guidelines → Materials
+   528→- Apple Developer Documentation → Liquid Glass
+   529→- Apple Developer Documentation → Adopting Liquid Glass
+   530→- SwiftUI → Material
+   531→
+   532→### What is NOT official
+   533→There is no `liquid-glass.css` from Apple for normal websites.
+   534→
+   535→A web approximation can use:
+   536→- `backdrop-filter`
+   537→- transparent backgrounds
+   538→- layered borders
+   539→- highlight overlays
+   540→- gradients
+   541→- motion
+   542→- strong contrast fallbacks
+   543→
+   544→But that is **web glassmorphism / frosted-glass approximation**, not official Apple Liquid Glass. Label it as such in comments.
+   545→
+   546→### Safer web approximation skeleton
+   547→
+   548→```css
+   549→.liquid-glass-web-approx {
+   550→  position: relative;
+   551→  isolation: isolate;
+   552→  overflow: hidden;
+   553→  border-radius: 999px;
+   554→  border: 1px solid rgb(255 255 255 / .32);
+   555→  background:
+   556→    linear-gradient(135deg, rgb(255 255 255 / .30), rgb(255 255 255 / .08)),
+   557→    rgb(255 255 255 / .12);
+   558→  backdrop-filter: blur(24px) saturate(180%) contrast(1.05);
+   559→  -webkit-backdrop-filter: blur(24px) saturate(180%) contrast(1.05);
+   560→  box-shadow:
+   561→    inset 0 1px 0 rgb(255 255 255 / .48),
+   562→    inset 0 -1px 0 rgb(255 255 255 / .12),
+   563→    0 18px 60px rgb(0 0 0 / .18);
+   564→}
+   565→
+   566→.liquid-glass-web-approx::before {
+   567→  content: "";
+   568→  position: absolute;
+   569→  inset: 0;
+   570→  z-index: -1;
+   571→  border-radius: inherit;
+   572→  background:
+   573→    radial-gradient(circle at 20% 0%, rgb(255 255 255 / .55), transparent 34%),
+   574→    linear-gradient(90deg, rgb(255 255 255 / .18), transparent 42%, rgb(255 255 255 / .14));
+   575→  pointer-events: none;
+   576→}
+   577→
+   578→.liquid-glass-web-approx::after {
+   579→  content: "";
+   580→  position: absolute;
+   581→  inset: 1px;
+   582→  border-radius: inherit;
+   583→  border: 1px solid rgb(255 255 255 / .14);
+   584→  pointer-events: none;
+   585→}
+   586→
+   587→@media (prefers-color-scheme: dark) {
+   588→  .liquid-glass-web-approx {
+   589→    border-color: rgb(255 255 255 / .18);
+   590→    background:
+   591→      linear-gradient(135deg, rgb(255 255 255 / .16), rgb(255 255 255 / .04)),
+   592→      rgb(15 23 42 / .42);
+   593→    box-shadow:
+   594→      inset 0 1px 0 rgb(255 255 255 / .22),
+   595→      0 18px 60px rgb(0 0 0 / .42);
+   596→  }
+   597→}
+   598→
+   599→@media (prefers-reduced-transparency: reduce) {
+   600→  .liquid-glass-web-approx {
+   601→    background: rgb(255 255 255 / .96);
+   602→    backdrop-filter: none;
+   603→    -webkit-backdrop-filter: none;
+   604→  }
+   605→}
+   606→```
+   607→
+   608→**Important:** `prefers-reduced-transparency` has uneven browser support; test it. Always provide enough contrast even without blur.
+   609→
+   610→---
+   611→
+   612→**End of appendices.** Install commands above are reality anchors. The Apple Liquid Glass skeleton is a labeled approximation, not an Apple-issued package. For canonical docs per design system, consult the system's official docs (links in Section 2 plus Appendix B).
