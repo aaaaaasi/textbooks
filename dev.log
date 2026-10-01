@@ -1,6 +1,6 @@
 ▲ Next.js 16.1.3 (Turbopack)
 - Local:         http://localhost:3000
-- Network:       http://21.0.17.233:3000
+- Network:       http://21.0.10.217:3000
 - Environments: .env
 
 ✓ Starting...
@@ -9,7 +9,7 @@ This information is used to shape Next.js' roadmap and prioritize features.
 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 https://nextjs.org/telemetry
 
-✓ Ready in 610ms
+✓ Ready in 511ms
 ○ Compiling / ...
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
@@ -151,7 +151,8 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 64ms (compile: 11ms, render: 53ms)
+ GET / 200 in 4.9s (compile: 4.7s, render: 218ms)
+ GET / 200 in 5.0s (compile: 4.8s, render: 179ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -222,7 +223,7 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 60ms (compile: 7ms, render: 53ms)
+ GET / 200 in 49ms (compile: 6ms, render: 43ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -293,7 +294,7 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 52ms (compile: 6ms, render: 45ms)
+ GET / 200 in 52ms (compile: 8ms, render: 45ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -364,573 +365,7 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 44ms (compile: 6ms, render: 38ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET /api/catalog 200 in 452ms (compile: 415ms, render: 37ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 48ms (compile: 6ms, render: 43ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 72ms (compile: 14ms, render: 58ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET /api/catalog 200 in 15ms (compile: 6ms, render: 9ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 384ms (compile: 319ms, render: 65ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET /api/catalog 200 in 22ms (compile: 6ms, render: 16ms)
+ GET / 200 in 51ms (compile: 10ms, render: 41ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -1072,1632 +507,7 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 51ms (compile: 6ms, render: 45ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET /api/catalog 200 in 11ms (compile: 3ms, render: 8ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 53ms (compile: 7ms, render: 46ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 43ms (compile: 5ms, render: 38ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 55ms (compile: 7ms, render: 48ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 91ms (compile: 8ms, render: 83ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET /api/catalog 200 in 35ms (compile: 6ms, render: 29ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 46ms (compile: 5ms, render: 41ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 64ms (compile: 9ms, render: 55ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 60ms (compile: 9ms, render: 52ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 44ms (compile: 4ms, render: 39ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 54ms (compile: 6ms, render: 48ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET /api/catalog 200 in 13ms (compile: 4ms, render: 9ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 88ms (compile: 5ms, render: 83ms)
- GET / 200 in 45ms (compile: 5ms, render: 40ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 44ms (compile: 6ms, render: 39ms)
+ GET /api/catalog 200 in 487ms (compile: 453ms, render: 34ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -2908,8 +718,79 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 86ms (compile: 5ms, render: 81ms)
- GET / 200 in 44ms (compile: 8ms, render: 36ms)
+⚠ ./src/instrumentation.ts:11:10
+Ecmascript file had an error
+[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+ [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m 14 |[39m   })[0m
+
+A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:16:3
+Ecmascript file had an error
+[0m [90m 14 |[39m   })
+ [90m 15 |[39m
+[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
+ [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
+ [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:22:3
+Ecmascript file had an error
+[0m [90m 20 |[39m     })
+ [90m 21 |[39m   })
+[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
+ [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
+ [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:13:10
+Ecmascript file had an error
+[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m   })
+ [90m 15 |[39m
+ [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
+
+A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:9:11
+Ecmascript file had an error
+[0m [90m  7 |[39m
+ [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
+[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+ [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
+
+A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+ GET /api/cover/1e04e52e-41df-4689-b12a-f3b7315a4243 200 in 1162ms (compile: 1126ms, render: 36ms)
+ GET /api/cover/bdc00134-465d-454b-a541-dcd0cec4d86e 200 in 1167ms (compile: 1126ms, render: 42ms)
+ GET /api/cover/bd625fcd-e083-460c-ae3b-c50a9840c48e 200 in 1152ms (compile: 1104ms, render: 49ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -3050,221 +931,6 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 88ms (compile: 8ms, render: 80ms)
- GET / 200 in 90ms (compile: 42ms, render: 48ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 57ms (compile: 5ms, render: 53ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 96ms (compile: 11ms, render: 84ms)
-⚠ ./src/instrumentation.ts:11:10
-Ecmascript file had an error
-[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
-[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
- [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m 14 |[39m   })[0m
-
-A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:16:3
-Ecmascript file had an error
-[0m [90m 14 |[39m   })
- [90m 15 |[39m
-[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
- [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
- [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:22:3
-Ecmascript file had an error
-[0m [90m 20 |[39m     })
- [90m 21 |[39m   })
-[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
- [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
- [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
- [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
-
-A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:13:10
-Ecmascript file had an error
-[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
-[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
- [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 14 |[39m   })
- [90m 15 |[39m
- [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
-
-A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
-⚠ ./src/instrumentation.ts:9:11
-Ecmascript file had an error
-[0m [90m  7 |[39m
- [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
-[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
- [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
- [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
- [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
- [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
-
-A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
-Learn more: https://nextjs.org/docs/api-reference/edge-runtime
-
-
- GET / 200 in 42ms (compile: 7ms, render: 35ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -3405,7 +1071,10 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET /api/catalog 200 in 15ms (compile: 5ms, render: 11ms)
+ GET /api/cover/c8fce409-aedf-4a37-9de1-b62c42876192 200 in 120ms (compile: 58ms, render: 62ms)
+ GET /api/cover/64e96b25-9c23-498a-91da-c63e1ef531c7 200 in 123ms (compile: 50ms, render: 73ms)
+ GET /api/cover/36b21477-70a9-4210-a75f-ee958d438632 200 in 124ms (compile: 94ms, render: 30ms)
+ GET /api/cover/5082db8c-82e3-4253-be5a-36a4cc7473a6 200 in 128ms (compile: 106ms, render: 22ms)
 ⚠ ./src/instrumentation.ts:11:10
 Ecmascript file had an error
 [0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
@@ -3476,4 +1145,287 @@ A Node.js API is used (process.version at line: 9) which is not supported in the
 Learn more: https://nextjs.org/docs/api-reference/edge-runtime
 
 
- GET / 200 in 38ms (compile: 4ms, render: 35ms)
+ GET /api/cover/a32d0ba5-c2de-49df-9173-5e7cf2b572a3 200 in 64ms (compile: 20ms, render: 45ms)
+⚠ ./src/instrumentation.ts:11:10
+Ecmascript file had an error
+[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+ [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m 14 |[39m   })[0m
+
+A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:16:3
+Ecmascript file had an error
+[0m [90m 14 |[39m   })
+ [90m 15 |[39m
+[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
+ [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
+ [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:22:3
+Ecmascript file had an error
+[0m [90m 20 |[39m     })
+ [90m 21 |[39m   })
+[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
+ [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
+ [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:13:10
+Ecmascript file had an error
+[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m   })
+ [90m 15 |[39m
+ [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
+
+A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:9:11
+Ecmascript file had an error
+[0m [90m  7 |[39m
+ [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
+[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+ [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
+
+A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+ GET / 200 in 157ms (compile: 4ms, render: 153ms)
+⚠ ./src/instrumentation.ts:11:10
+Ecmascript file had an error
+[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+ [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m 14 |[39m   })[0m
+
+A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:16:3
+Ecmascript file had an error
+[0m [90m 14 |[39m   })
+ [90m 15 |[39m
+[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
+ [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
+ [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:22:3
+Ecmascript file had an error
+[0m [90m 20 |[39m     })
+ [90m 21 |[39m   })
+[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
+ [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
+ [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:13:10
+Ecmascript file had an error
+[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m   })
+ [90m 15 |[39m
+ [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
+
+A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:9:11
+Ecmascript file had an error
+[0m [90m  7 |[39m
+ [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
+[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+ [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
+
+A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+ GET / 200 in 62ms (compile: 7ms, render: 55ms)
+⚠ ./src/instrumentation.ts:11:10
+Ecmascript file had an error
+[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+ [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m 14 |[39m   })[0m
+
+A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:16:3
+Ecmascript file had an error
+[0m [90m 14 |[39m   })
+ [90m 15 |[39m
+[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
+ [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
+ [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:22:3
+Ecmascript file had an error
+[0m [90m 20 |[39m     })
+ [90m 21 |[39m   })
+[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
+ [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
+ [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:13:10
+Ecmascript file had an error
+[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m   })
+ [90m 15 |[39m
+ [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
+
+A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:9:11
+Ecmascript file had an error
+[0m [90m  7 |[39m
+ [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
+[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+ [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
+
+A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+ GET /api/catalog 200 in 14ms (compile: 5ms, render: 9ms)
+⚠ ./src/instrumentation.ts:11:10
+Ecmascript file had an error
+[0m [90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+[31m[1m>[22m[39m[90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+ [90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m 14 |[39m   })[0m
+
+A Node.js API is used (process.cwd at line: 11) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:16:3
+Ecmascript file had an error
+[0m [90m 14 |[39m   })
+ [90m 15 |[39m
+[31m[1m>[22m[39m[90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 17 |[39m     probe([32m"uncaughtException"[39m[33m,[39m {
+ [90m 18 |[39m       msg[33m:[39m e[33m?[39m[33m.[39mmessage[33m,[39m
+ [90m 19 |[39m       stack[33m:[39m [33mString[39m(e[33m?[39m[33m.[39mstack [33m||[39m [32m""[39m)[33m.[39mslice([35m0[39m[33m,[39m [35m1200[39m)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 16) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:22:3
+Ecmascript file had an error
+[0m [90m 20 |[39m     })
+ [90m 21 |[39m   })
+[31m[1m>[22m[39m[90m 22 |[39m   process[33m.[39mon([32m"unhandledRejection"[39m[33m,[39m (e) [33m=>[39m {
+ [90m    |[39m   [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 23 |[39m     [36mconst[39m err [33m=[39m e [36mas[39m [33mError[39m
+ [90m 24 |[39m     probe([32m"unhandledRejection"[39m[33m,[39m {
+ [90m 25 |[39m       msg[33m:[39m err[33m?[39m[33m.[39mmessage [33m?[39m[33m?[39m [33mString[39m(e)[33m,[39m[0m
+
+A Node.js API is used (process.on at line: 22) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:13:10
+Ecmascript file had an error
+[0m [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m
+[31m[1m>[22m[39m[90m 13 |[39m     pid[33m:[39m process[33m.[39mpid[33m,[39m
+ [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 14 |[39m   })
+ [90m 15 |[39m
+ [90m 16 |[39m   process[33m.[39mon([32m"uncaughtException"[39m[33m,[39m (e) [33m=>[39m {[0m
+
+A Node.js API is used (process.pid at line: 13) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
+⚠ ./src/instrumentation.ts:9:11
+Ecmascript file had an error
+[0m [90m  7 |[39m
+ [90m  8 |[39m   probe([32m"server-boot"[39m[33m,[39m {
+[31m[1m>[22m[39m[90m  9 |[39m     node[33m:[39m process[33m.[39mversion[33m,[39m
+ [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m     env[33m:[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m[33m,[39m
+ [90m 11 |[39m     cwd[33m:[39m process[33m.[39mcwd()[33m,[39m
+ [90m 12 |[39m     port[33m:[39m process[33m.[39menv[33m.[39m[33mPORT[39m [33m||[39m [32m"-"[39m[33m,[39m[0m
+
+A Node.js API is used (process.version at line: 9) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+
