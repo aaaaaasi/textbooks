@@ -14,9 +14,19 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Switch } from "@/components/ui/switch"
 import { BookDialog } from "@/components/textbooks/book-dialog"
 import { DownloadTray } from "@/components/textbooks/download-tray"
+import { LangToggle, useLang } from "@/components/textbooks/lang"
 import { useDownloadStore } from "@/lib/download-store"
 import { cancelDownload, registerController, streamDownload, unregisterController } from "@/lib/download-client"
+import { resTypeOf, type ResType } from "@/lib/res-type"
 import type { BookRecord, CatalogFile } from "@/lib/catalog"
+import {
+  expandQuery,
+  labelGrade,
+  labelSubject,
+  STAGE_KEY,
+  tokenHits,
+  TYPE_KEY,
+} from "@/lib/i18n"
 
 const STAGE_TABS = ["全部", "小学", "初中", "高中", "特殊教育"] as const
 const STAGE_RANK: Record<string, number> = { 小学: 1, 初中: 2, 高中: 3, 特殊教育: 4 }
@@ -25,6 +35,7 @@ const GRADE_RANK: string[] = [
   "七年级", "八年级", "九年级",
   "高一", "高二", "高三",
 ]
+const TYPE_VALUES: ResType[] = ["student", "teacher", "resource", "thematic"]
 const PAGE_STEP = 60
 
 function gradeRank(g: string): number {
@@ -57,6 +68,7 @@ function uniqSorted(arr: string[], rank?: (s: string) => number): string[] {
 
 /** 封面图：走磁盘缓存路由，加载失败退化为标题字占位 */
 function Cover({ id, title }: { id: string; title: string }) {
+  const { t } = useLang()
   const [ok, setOk] = useState(true)
   if (!ok) {
     return (
@@ -68,7 +80,7 @@ function Cover({ id, title }: { id: string; title: string }) {
   return (
     <img
       src={`/api/cover/${id}`}
-      alt={`${cleanTitle(title)} 封面`}
+      alt={t("coverOf", { title: cleanTitle(title) })}
       loading="lazy"
       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
       onError={() => setOk(false)}
@@ -77,11 +89,13 @@ function Cover({ id, title }: { id: string; title: string }) {
 }
 
 export default function Home() {
+  const { lang, t } = useLang()
   const [catalog, setCatalog] = useState<CatalogFile | null>(null)
   const [loadErr, setLoadErr] = useState(false)
 
   const [query, setQuery] = useState("")
   const [stage, setStage] = useState<string>("全部")
+  const [type, setType] = useState<string>("all")
   const [subject, setSubject] = useState("all")
   const [grade, setGrade] = useState("all")
   const [volume, setVolume] = useState("all")
@@ -106,7 +120,7 @@ export default function Home() {
 
   useEffect(() => {
     setVisible(PAGE_STEP)
-  }, [query, subject, grade, volume, version, revisedOnly, stage])
+  }, [query, subject, grade, volume, version, revisedOnly, stage, type])
 
   const books = catalog?.books ?? []
 
@@ -152,8 +166,10 @@ export default function Home() {
   if (version !== "all" && !versionOpts.includes(version)) setVersion("all")
 
   const filtered = useMemo(() => {
-    const tokens = query.trim().toLowerCase().split(/\s+/).filter(Boolean)
+    // 英文查询展开：History→历史、physics→物理、Grade 9→九年级……
+    const tokens = expandQuery(query)
     const out = stageBooks.filter((b) => {
+      if (type !== "all" && resTypeOf(b) !== type) return false
       if (subject !== "all" && b.subject !== subject) return false
       if (grade !== "all" && b.grade !== grade) return false
       if (volume !== "all" && b.volume !== volume) return false
@@ -161,11 +177,14 @@ export default function Home() {
       if (revisedOnly && !b.revised) return false
       if (tokens.length > 0) {
         const hay = `${b.title} ${b.version} ${b.subject} ${b.grade} ${b.volume} ${b.stage}`.toLowerCase()
-        if (!tokens.every((t) => hay.includes(t))) return false
+        if (!tokens.every((tk) => tokenHits(tk, hay))) return false
       }
       return true
     })
     out.sort((a, b) => {
+      // 学生教材在前，教师用书/课件等资源靠后
+      const tr = (resTypeOf(a) === "student" ? 0 : 1) - (resTypeOf(b) === "student" ? 0 : 1)
+      if (tr !== 0) return tr
       if (a.revised !== b.revised) return a.revised ? -1 : 1
       const s = matchStage(a.stage) - matchStage(b.stage)
       if (s !== 0) return s
@@ -174,10 +193,11 @@ export default function Home() {
       return cleanTitle(a.title).localeCompare(cleanTitle(b.title), "zh")
     })
     return out
-  }, [stageBooks, query, subject, grade, volume, version, revisedOnly])
+  }, [stageBooks, query, type, subject, grade, volume, version, revisedOnly])
 
   const revisedCount = useMemo(() => books.filter((b) => b.revised).length, [books])
-  const hasFilter = subject !== "all" || grade !== "all" || volume !== "all" || version !== "all" || revisedOnly || query.trim() !== ""
+  const hasFilter =
+    subject !== "all" || grade !== "all" || volume !== "all" || version !== "all" || revisedOnly || type !== "all" || query.trim() !== ""
 
   function resetFilters() {
     setQuery("")
@@ -185,6 +205,7 @@ export default function Home() {
     setGrade("all")
     setVolume("all")
     setVersion("all")
+    setType("all")
     setRevisedOnly(false)
   }
 
@@ -207,14 +228,14 @@ export default function Home() {
     } catch (e) {
       const err = e as DOMException
       if (err?.name === "AbortError") useDownloadStore.getState().cancel(id)
-      else useDownloadStore.getState().fail(id, err?.message ?? "下载失败")
+      else useDownloadStore.getState().fail(id, err?.message ?? t("dlFailed"))
     } finally {
       controllers.current.delete(id)
       unregisterController(id)
     }
   }
 
-  const activeCount = Object.values(tasks).filter((t) => t.status === "active").length
+  const activeCount = Object.values(tasks).filter((t2) => t2.status === "active").length
 
   return (
     <div className="min-h-[100dvh] flex flex-col bg-background">
@@ -224,18 +245,21 @@ export default function Home() {
           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
             <BookOpen className="h-4 w-4" weight="bold" aria-hidden />
           </span>
-          <span className="font-brand text-[17px] font-semibold tracking-wide">电子教材库</span>
+          <span className="font-brand text-[17px] font-semibold tracking-wide">{t("brand")}</span>
           <span className="h-4 w-px bg-border hidden sm:block" aria-hidden />
-          <span className="text-xs text-muted-foreground hidden sm:inline">国家中小学智慧教育平台</span>
-          <span className="ml-auto text-xs text-muted-foreground tabular-nums flex items-center gap-3">
+          <span className="text-xs text-muted-foreground hidden sm:inline">{t("platform")}</span>
+          <span className="ml-auto flex items-center gap-3 text-xs text-muted-foreground tabular-nums">
             {catalog && (
               <span className="hidden md:inline">
-                {catalog.total} 本教材，其中 2022 修订版
-                <span className="text-primary font-medium"> {revisedCount} </span>
-                本
+                {t("stats", { total: catalog.total, revised: revisedCount })}
               </span>
             )}
-            {catalog?.updated && <span className="hidden lg:inline text-muted-foreground/70">目录更新 {catalog.updated}</span>}
+            {catalog?.updated && (
+              <span className="hidden lg:inline text-muted-foreground/70">
+                {t("catalogUpdated", { time: catalog.updated })}
+              </span>
+            )}
+            <LangToggle />
           </span>
         </div>
       </header>
@@ -252,67 +276,79 @@ export default function Home() {
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="搜索书名或关键词，如：九年级物理、History"
+                placeholder={t("searchPlaceholder")}
                 className="h-10 pl-10 rounded-md bg-card text-[15px]"
-                aria-label="搜索教材"
+                aria-label={t("searchLabel")}
               />
             </div>
             <label className="flex items-center gap-2 text-[13px] text-muted-foreground cursor-pointer select-none ml-auto">
-              <Switch checked={revisedOnly} onCheckedChange={setRevisedOnly} aria-label="仅看2022课标修订版" />
-              仅看修订版
+              <Switch checked={revisedOnly} onCheckedChange={setRevisedOnly} aria-label={t("revisedOnlyAria")} />
+              {t("revisedOnly")}
             </label>
             <span className="text-xs text-muted-foreground tabular-nums hidden sm:block w-20 text-right">
-              {filtered.length} 本
-              {activeCount > 0 && <span className="block text-primary">{activeCount} 个下载中</span>}
+              {t("countBooks", { n: filtered.length })}
+              {activeCount > 0 && <span className="block text-primary">{t("downloading", { n: activeCount })}</span>}
             </span>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <div className="flex rounded-md border p-0.5 gap-0.5 overflow-x-auto" role="tablist" aria-label="学段">
-              {STAGE_TABS.map((t) => (
+            <div className="flex rounded-md border p-0.5 gap-0.5 overflow-x-auto" role="tablist" aria-label={t("stageAria")}>
+              {STAGE_TABS.map((tab) => (
                 <button
-                  key={t}
-                  onClick={() => setStage(t)}
+                  key={tab}
+                  onClick={() => setStage(tab)}
                   className={`px-3 h-8 rounded-[5px] text-[13px] whitespace-nowrap transition-colors ${
-                    stage === t ? "bg-primary text-primary-foreground font-medium" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground"
+                    stage === tab ? "bg-primary text-primary-foreground font-medium" : "hover:bg-accent hover:text-accent-foreground text-muted-foreground"
                   }`}
-                  aria-pressed={stage === t}
+                  aria-pressed={stage === tab}
                 >
-                  {t}
+                  {t(STAGE_KEY[tab])}
                 </button>
               ))}
             </div>
 
+            <Select value={type} onValueChange={setType}>
+              <SelectTrigger className="w-[8.5rem] h-9 rounded-md" aria-label={t("filterType")}>
+                <SelectValue placeholder={t("filterType")} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">{t("allTypes")}</SelectItem>
+                {TYPE_VALUES.map((tp) => (
+                  <SelectItem key={tp} value={tp}>{t(TYPE_KEY[tp])}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
             <Select value={subject} onValueChange={setSubject}>
-              <SelectTrigger className="w-[9rem] h-9 rounded-md" aria-label="按学科筛选">
-                <SelectValue placeholder="学科" />
+              <SelectTrigger className="w-[9rem] h-9 rounded-md" aria-label={t("filterSubject")}>
+                <SelectValue placeholder={t("filterSubject")} />
               </SelectTrigger>
               <SelectContent className="max-h-72">
-                <SelectItem value="all">全部学科</SelectItem>
+                <SelectItem value="all">{t("allSubjects")}</SelectItem>
                 {subjectOpts.map((s) => (
-                  <SelectItem key={s} value={s}>{s}</SelectItem>
+                  <SelectItem key={s} value={s}>{labelSubject(s, lang)}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
 
             <Select value={grade} onValueChange={setGrade}>
-              <SelectTrigger className="w-[8.5rem] h-9 rounded-md" aria-label="按年级筛选">
-                <SelectValue placeholder="年级" />
+              <SelectTrigger className="w-[8.5rem] h-9 rounded-md" aria-label={t("filterGrade")}>
+                <SelectValue placeholder={t("filterGrade")} />
               </SelectTrigger>
               <SelectContent className="max-h-72">
-                <SelectItem value="all">全部年级</SelectItem>
+                <SelectItem value="all">{t("allGrades")}</SelectItem>
                 {gradeOpts.map((g) => (
-                  <SelectItem key={g} value={g}>{g}</SelectItem>
+                  <SelectItem key={g} value={g}>{labelGrade(g, lang)}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
 
             <Select value={volume} onValueChange={setVolume}>
-              <SelectTrigger className="w-[8rem] h-9 rounded-md" aria-label="按册次筛选">
-                <SelectValue placeholder="册次" />
+              <SelectTrigger className="w-[8rem] h-9 rounded-md" aria-label={t("filterVolume")}>
+                <SelectValue placeholder={t("filterVolume")} />
               </SelectTrigger>
               <SelectContent className="max-h-72">
-                <SelectItem value="all">全部册次</SelectItem>
+                <SelectItem value="all">{t("allVolumes")}</SelectItem>
                 {volumeOpts.map((v) => (
                   <SelectItem key={v} value={v}>{v}</SelectItem>
                 ))}
@@ -320,11 +356,11 @@ export default function Home() {
             </Select>
 
             <Select value={version} onValueChange={setVersion}>
-              <SelectTrigger className="w-[9.5rem] h-9 rounded-md" aria-label="按版本筛选，选项随前面条件变化">
-                <SelectValue placeholder="版本" />
+              <SelectTrigger className="w-[9.5rem] h-9 rounded-md" aria-label={t("filterVersionAria")}>
+                <SelectValue placeholder={t("filterVersion")} />
               </SelectTrigger>
               <SelectContent className="max-h-72">
-                <SelectItem value="all">全部版本</SelectItem>
+                <SelectItem value="all">{t("allVersions")}</SelectItem>
                 {versionOpts.map((v) => (
                   <SelectItem key={v} value={v}>{v}</SelectItem>
                 ))}
@@ -337,7 +373,7 @@ export default function Home() {
                 className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground h-8 px-2 rounded-md hover:bg-muted transition-colors"
               >
                 <ArrowsCounterClockwise className="h-3.5 w-3.5" aria-hidden />
-                重置
+                {t("reset")}
               </button>
             )}
           </div>
@@ -347,9 +383,7 @@ export default function Home() {
       {/* 结果区 */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
         {loadErr ? (
-          <div className="py-24 text-center text-sm text-muted-foreground">
-            目录加载失败，请刷新页面重试。
-          </div>
+          <div className="py-24 text-center text-sm text-muted-foreground">{t("loadErr")}</div>
         ) : !catalog ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-6">
             {Array.from({ length: 10 }).map((_, i) => (
@@ -366,68 +400,78 @@ export default function Home() {
               <MagnifyingGlass className="h-5 w-5 text-muted-foreground" aria-hidden />
             </span>
             <div>
-              <p className="text-sm font-medium">没有找到匹配的教材</p>
-              <p className="mt-1 text-[13px] text-muted-foreground">换个关键词，或放宽筛选条件再试</p>
+              <p className="text-sm font-medium">{t("noMatch")}</p>
+              <p className="mt-1 text-[13px] text-muted-foreground">{t("noMatchHint")}</p>
             </div>
             <Button variant="outline" size="sm" onClick={resetFilters} className="rounded-md">
-              重置筛选
+              {t("resetFilters")}
             </Button>
           </div>
         ) : (
           <>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-6">
-              {filtered.slice(0, visible).map((b) => (
-                <article
-                  key={b.id}
-                  className="group cursor-pointer"
-                  onClick={() => setSelected(b)}
-                  aria-label={`查看 ${cleanTitle(b.title)} 详情`}
-                >
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-lg border bg-muted transition-[transform,box-shadow] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_-18px_rgba(41,37,36,0.35)]">
-                    <Cover id={b.id} title={b.title} />
-                  </div>
-                  <div className="pt-2">
-                    <div className="flex items-start gap-1.5">
-                      {b.revised && (
-                        <span className="shrink-0 mt-[2px] rounded-[4px] border border-primary/25 bg-primary/10 px-1 text-[10px] leading-[15px] font-medium text-primary">
-                          2022修订
-                        </span>
-                      )}
-                      <h3 className="text-[13px] font-medium leading-snug line-clamp-2" title={b.title}>
-                        {cleanTitle(b.title)}
-                      </h3>
+              {filtered.slice(0, visible).map((b) => {
+                const rt = resTypeOf(b)
+                return (
+                  <article
+                    key={b.id}
+                    className="group cursor-pointer"
+                    onClick={() => setSelected(b)}
+                    aria-label={t("viewDetail", { title: cleanTitle(b.title) })}
+                  >
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-lg border bg-muted transition-[transform,box-shadow] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_-18px_rgba(41,37,36,0.35)]">
+                      <Cover id={b.id} title={b.title} />
                     </div>
-                    <p className="mt-1 text-xs text-muted-foreground truncate">
-                      {[b.version, b.grade, b.volume].filter(Boolean).join(" ")}
-                    </p>
-                  </div>
-                  <div className="mt-2 flex gap-1.5" onClick={(e) => e.stopPropagation()}>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 h-8 rounded-md bg-card active:scale-[0.98]"
-                      onClick={() => window.open(`/preview/${b.id}`, "_blank", "noopener")}
-                    >
-                      <BookOpen className="mr-1 h-3.5 w-3.5" aria-hidden />
-                      阅读
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="flex-1 h-8 rounded-md active:scale-[0.98]"
-                      onClick={() => handleDownload(b.id, b.title)}
-                    >
-                      <DownloadSimple className="mr-1 h-3.5 w-3.5" aria-hidden />
-                      下载
-                    </Button>
-                  </div>
-                </article>
-              ))}
+                    <div className="pt-2">
+                      <div className="flex items-start gap-1.5">
+                        {b.revised && (
+                          <span className="shrink-0 mt-[2px] rounded-[4px] border border-primary/25 bg-primary/10 px-1 text-[10px] leading-[15px] font-medium text-primary">
+                            {t("badgeRevised")}
+                          </span>
+                        )}
+                        {rt !== "student" && (
+                          <span className="shrink-0 mt-[2px] rounded-[4px] border bg-muted px-1 text-[10px] leading-[15px] text-muted-foreground">
+                            {t(TYPE_KEY[rt])}
+                          </span>
+                        )}
+                        <h3 className="text-[13px] font-medium leading-snug line-clamp-2" title={b.title}>
+                          {cleanTitle(b.title)}
+                        </h3>
+                      </div>
+                      <p className="mt-1 text-xs text-muted-foreground truncate">
+                        {[b.version, labelGrade(b.grade, lang), b.volume].filter(Boolean).join(" ")}
+                      </p>
+                    </div>
+                    <div className="mt-2 flex gap-1.5" onClick={(e) => e.stopPropagation()}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 h-8 rounded-md bg-card active:scale-[0.98]"
+                        onClick={() => window.open(`/preview/${b.id}`, "_blank", "noopener")}
+                      >
+                        <BookOpen className="mr-1 h-3.5 w-3.5" aria-hidden />
+                        {t("read")}
+                      </Button>
+                      {rt === "student" && (
+                        <Button
+                          size="sm"
+                          className="flex-1 h-8 rounded-md active:scale-[0.98]"
+                          onClick={() => handleDownload(b.id, b.title)}
+                        >
+                          <DownloadSimple className="mr-1 h-3.5 w-3.5" aria-hidden />
+                          {t("download")}
+                        </Button>
+                      )}
+                    </div>
+                  </article>
+                )
+              })}
             </div>
 
             {visible < filtered.length && (
               <div className="mt-10 text-center">
                 <Button variant="outline" onClick={() => setVisible((v) => v + PAGE_STEP)} className="px-10 rounded-md">
-                  加载更多（还有 {filtered.length - visible} 本）
+                  {t("loadMore", { n: filtered.length - visible })}
                 </Button>
               </div>
             )}
@@ -437,8 +481,10 @@ export default function Home() {
 
       <footer className="mt-auto border-t bg-card">
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2 justify-between text-xs text-muted-foreground">
-          <span>教材数据与文件来源：国家中小学智慧教育平台（basic.smartedu.cn），电子资源仅供个人学习、备课使用，请尊重出版社版权。</span>
-          <span className="tabular-nums">{catalog?.updated ? `目录更新 ${catalog.updated}` : ""}</span>
+          <span>{t("footerNote")}</span>
+          <span className="tabular-nums">
+            {catalog?.updated ? t("catalogUpdated", { time: catalog.updated }) : ""}
+          </span>
         </div>
       </footer>
 

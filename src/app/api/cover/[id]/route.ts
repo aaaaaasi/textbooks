@@ -8,6 +8,7 @@ import {
   UPSTREAM_HEADERS,
   fetchWithHeaderTimeout,
 } from "@/lib/smartedu"
+import { getCatalog } from "@/lib/catalog"
 
 export const dynamic = "force-dynamic"
 
@@ -67,40 +68,15 @@ function placeholderResponse(cacheable: boolean): Response {
   })
 }
 
-export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  if (!/^[0-9a-f-]{16,64}$/i.test(id)) {
-    return Response.json({ error: "invalid id" }, { status: 400 })
-  }
-
-  const cached = await serveCached(id)
-  if (cached) return cached
-
-  const negHit = noCoverIds.get(id)
-  if (negHit && Date.now() - negHit < NO_COVER_TTL) {
-    return placeholderResponse(true)
-  }
-
-  const details = await fetchDetails(id)
-  if (!details) {
-    // 瞬时上游故障：占位图兜底但不缓存，下次访问自动重试
-    return placeholderResponse(false)
-  }
-
-  const cover = pickCover(details)
-  if (!cover || !isAllowedUpstream(cover)) {
-    noCoverIds.set(id, Date.now())
-    return placeholderResponse(true)
-  }
-
-  // r1/r2/r3 镜像轮换 + 12s 响应头超时，全量缓冲后再返回
+/** 回源拉图（r1/r2/r3 镜像轮换 + 12s 头超时），全量缓冲后写盘缓存并返回；全败返回 null */
+async function fetchAndCache(id: string, cover: string, signal: AbortSignal): Promise<Response | null> {
   for (const url of mirrorVariants(cover)) {
     try {
       const res = await fetchWithHeaderTimeout(
         url,
         { headers: UPSTREAM_HEADERS, cache: "no-store" },
         12_000,
-        _req.signal,
+        signal,
       )
       if (!res.ok || !res.body) continue
       const type = res.headers.get("content-type") ?? "image/jpeg"
@@ -122,6 +98,46 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       // 换下一个镜像
     }
   }
-  // 全部镜像失败：瞬时故障，不写负缓存
-  return placeholderResponse(false)
+  return null
+}
+
+export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  if (!/^[0-9a-f-]{16,64}$/i.test(id)) {
+    return Response.json({ error: "invalid id" }, { status: 400 })
+  }
+
+  const cached = await serveCached(id)
+  if (cached) return cached
+
+  const negHit = noCoverIds.get(id)
+  if (negHit && Date.now() - negHit < NO_COVER_TTL) {
+    return placeholderResponse(true)
+  }
+
+  const details = await fetchDetails(id)
+  const cover = details ? pickCover(details) : null
+  if (cover && isAllowedUpstream(cover)) {
+    const hit = await fetchAndCache(id, cover, _req.signal)
+    if (hit) return hit
+  }
+
+  // details 无权限/无封面（教师用书、课件、专题课等资源）：回退到目录条目自带的缩略图
+  let rec: { thumb?: string } | undefined
+  try {
+    rec = (await getCatalog()).books.find((b) => b.id === id)
+  } catch {
+    // 目录读不到就当没有
+  }
+  if (rec?.thumb && isAllowedUpstream(rec.thumb)) {
+    const hit = await fetchAndCache(id, rec.thumb, _req.signal)
+    if (hit) return hit
+  }
+
+  if (!details) {
+    // 瞬时上游故障：占位图兜底但不缓存，下次访问自动重试
+    return placeholderResponse(false)
+  }
+  noCoverIds.set(id, Date.now())
+  return placeholderResponse(true)
 }

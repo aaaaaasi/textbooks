@@ -1,5 +1,10 @@
 import { readFile, stat } from "fs/promises"
 import path from "path"
+import { resTypeOf, type ResType } from "./res-type"
+
+// 服务端目录模块：重导出客户端安全的类型与工具（book/cover 路由使用）
+export { resTypeOf }
+export type { ResType }
 
 export interface BookRecord {
   id: string
@@ -10,6 +15,12 @@ export interface BookRecord {
   version: string
   volume: string
   revised: boolean
+  res_type?: ResType
+  /** 无详情接口权限的资源：分片自带的封面缩略图 URL */
+  thumb?: string
+  /** 幻灯片阅读路径前缀（r*-ndr 域名后），第 n 页 = https://r1-ndr.ykt.cbern.com.cn/{slides}/{n}.jpg */
+  slides?: string
+  slide_count?: number
 }
 
 export interface CatalogFile {

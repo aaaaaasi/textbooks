@@ -14,13 +14,14 @@
 
 ## ✨ 特性
 
-- **全量目录**：2920 本义务教育电子教材（含 2022 课标修订版 1766 本），与上游平台同源
-- **精准检索**：全文搜索 + 学段 → 学科/年级 → 册次 → 版本级联筛选（版本列表动态收敛到当前组合下真实存在的版别），一键只看修订版
-- **双模式预览**：默认浏览器原生查看器（iframe 直出，保底可用）；一键切换 pdf.js 流式阅读器（渐进加载进度、页码跳转、缩放、键盘翻页、内置中文 CMap）
+- **全量目录**：3579 条资源 —— 学生教材 2596、教师用书 305、课件与教学指南 353、专题课 325（含 2022 课标修订版 1832），与上游平台同源
+- **精准检索**：全文搜索（支持英文关键词：History→历史、physics→物理、Grade 9→九年级）+ 学段/类型 → 学科/年级 → 册次 → 版本级联筛选（版本列表动态收敛到当前组合下真实存在的版别）
+- **双轨阅读**：学生教材走 PDF（默认原生查看器，可切 pdf.js 流式阅读器：渐进加载、页码跳转、缩放、键盘翻页、内置中文 CMap）；教师用书/课件/专题课等无 PDF 资源自动切换逐页图文阅读（CDN 公开幻灯片，直连失败自动换代理）
 - **下载提速**：6 并发 × 4MB 分块 + r1/r2/r3 三镜像轮换 + Content-Range 双重校验，实测 5.7 → 12.6 MB/s（约 2.2 倍）
 - **三级降级**：磁盘 LRU 缓存命中（毫秒级，实测 147 MB/s）→ 并行分块管线 → 单流透传；上游故障最多 12 秒后降级，永不永久挂起
-- **封面缓存**：2600 张封面压缩落盘 + immutable 浏览器缓存
-- **月度自动更新**：纯 Node 实现目录全量更新（30 天到期 + 凌晨空闲窗口 + 超期补跑 + 失败退避），更新后自动清理 PDF 缓存、裁剪已下架教材的孤儿封面；原子写入 + 并发锁 + 半残数据防御
+- **封面缓存**：2600+ 张封面压缩落盘 + immutable 浏览器缓存；无详情接口权限的资源回退到目录自带缩略图
+- **变更驱动自动更新**：调度器每日轻量探测上游 data_version.json 的 ETag（仅 ~400B），一有变更立即全量同步（纯 Node 实现，原子写入 + 双重锁 + 半残数据防御 + 失败 24h 退避），更新后自动清理 PDF 缓存、裁剪孤儿封面
+- **中英双语**：全站 UI 一键切换中文/English（选择持久化），学科/年级/学段标签同步翻译
 - **配套音频**：教材配套音频资源解析与代理播放
 - **课本纸主题**：暖纸底 + 松墨绿单强调色、深色模式、移动端适配、reduced-motion 降级
 
@@ -67,20 +68,20 @@ bun run update-catalog   # 等价于 bun src/lib/catalog-update.ts
 3. 详情 `…/ndrv2/resources/tch_material/details/{id}.json` → 取 `ti_items` 中 `ti_is_source_file=true` 的源文件路径
 4. PDF 直链：`cs_path:${ref-path}` 前缀替换为 `https://r{1|2|3}-ndr.ykt.cbern.com.cn`，携带匿名占位鉴权头（`X-ND-AUTH: MAC id="0",nonce="0",mac="0"`）
 
-## 🗄 缓存与月度自动更新
+## 🗄 缓存与自动更新
 
 - `data/pdfs/`：PDF 磁盘 LRU 缓存（上限 3GB，按 mtime 淘汰，`.part` 临时文件单写入者会话），看过的书二次预览/下载毫秒级
-- `data/covers/`：封面缓存；月度更新时自动裁剪新目录中已不存在的封面
-- 调度策略（`src/lib/scheduler.ts`）：距上次**成功**更新超 30 天且本地 03:00–05:59 空闲窗口触发；超 34 天任意时段补跑；失败 24h 退避且不重置周期；进程内 promise + 跨进程文件锁双重防并发
-- 更新安全（`src/lib/catalog-update.ts`）：原子写入（tmp + rename）、分片全部失败或书目骤减超半数时自动放弃并保留旧目录
+- `data/covers/`：封面缓存；目录同步时自动裁剪新目录中已不存在的封面
+- 调度策略（`src/lib/scheduler.ts`）：启动 30s 后首次记录上游 ETag 基线，之后每 24h 轻量探测一次 data_version.json；ETag 变化即触发全量同步，失败 24h 退避；状态持久化 `data/version_check.json`
+- 更新安全（`src/lib/catalog-update.ts`）：原子写入（tmp + rename）、分片全部失败或条目骤减超半数时自动放弃并保留旧目录
 
 ## 📁 项目结构
 
 ```
 src/app/            页面与 API 路由（首页、预览页 /preview/[id]，5 个 API）
-src/lib/            smartedu 上游链路 / pdf-cache LRU 缓存 / catalog-update 月度更新 / scheduler 调度器
+src/lib/            smartedu 上游链路 / pdf-cache LRU 缓存 / catalog-update 目录全量更新 / scheduler 版本探测调度 / i18n 双语字典
 data/               catalog.json 全量目录 + covers/ 封面缓存（pdfs/ 运行时生成，不入库）
-scripts/            Python 工具：build_catalog、smartedu_download、warm_covers、compress_covers、speed_test 等
+scripts/            Python 工具：smartedu_download、warm_covers、compress_covers、check_upstream_diff、speed_test 等
 public/cmaps/       pdf.js 中文 CMap（168 个 bcmap，中文教材渲染必需）
 .zscripts/          部署脚本示例（bun install + build → 校验 standalone → 打包上传 + Caddy 反代）
 ```

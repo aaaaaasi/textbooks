@@ -6,8 +6,10 @@ import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { useDownloadStore } from "@/lib/download-store"
 import { cancelDownload, formatSize } from "@/lib/download-client"
+import { useLang } from "@/components/textbooks/lang"
 
 export function DownloadTray() {
+  const { t } = useLang()
   const tasks = useDownloadStore((s) => s.tasks)
   const remove = useDownloadStore((s) => s.remove)
   const clearFinished = useDownloadStore((s) => s.clearFinished)
@@ -24,17 +26,17 @@ export function DownloadTray() {
       <div className="flex items-center gap-2 px-3.5 py-2.5 border-b">
         {activeCount > 0 && <CircleNotch className="h-4 w-4 animate-spin text-foreground" aria-hidden />}
         <span className="text-sm font-medium flex-1 truncate">
-          {activeCount > 0 ? `正在下载 ${activeCount} 个文件` : "下载完成"}
+          {activeCount > 0 ? t("trayActive", { n: activeCount }) : t("trayDone")}
         </span>
         {finished.length > 0 && (
           <Button variant="ghost" size="sm" className="h-7 px-2 text-xs text-muted-foreground" onClick={clearFinished}>
-            清除
+            {t("clear")}
           </Button>
         )}
         <button
           className="inline-flex h-7 w-7 items-center justify-center rounded-md hover:bg-muted transition-colors"
           onClick={() => setCollapsed((c) => !c)}
-          aria-label={collapsed ? "展开下载列表" : "收起下载列表"}
+          aria-label={collapsed ? t("expandTray") : t("collapseTray")}
         >
           {collapsed ? <CaretUp className="h-3.5 w-3.5" /> : <CaretDown className="h-3.5 w-3.5" />}
         </button>
@@ -57,33 +59,33 @@ export function DownloadTray() {
                         cancelDownload(t.id)
                         useDownloadStore.getState().cancel(t.id)
                       }}
-                      aria-label="取消下载"
+                      aria-label={t("cancelDownload")}
                       role="button"
                     />
                   )}
                   {t.status === "done" && <CheckCircle className="h-4 w-4 shrink-0 text-primary" aria-hidden />}
-                  {t.status === "error" && <XCircle className="h-4 w-4 shrink-0 text-destructive" aria-label="下载失败" />}
-                  {t.status === "cancelled" && <XCircle className="h-4 w-4 shrink-0 text-muted-foreground" aria-label="已取消" />}
+                  {t.status === "error" && <XCircle className="h-4 w-4 shrink-0 text-destructive" aria-label={t("dlFailed")} />}
+                  {t.status === "cancelled" && <XCircle className="h-4 w-4 shrink-0 text-muted-foreground" aria-label={t("cancelled")} />}
                   {t.status !== "active" && (
                     <X
                       className="h-3.5 w-3.5 shrink-0 cursor-pointer text-muted-foreground hover:text-foreground"
                       onClick={() => remove(t.id)}
-                      aria-label="移除记录"
+                      aria-label={t("removeRecord")}
                       role="button"
                     />
                   )}
                 </div>
                 {t.status === "active" && (
                   <>
-                    <Progress value={pct} className="h-1.5 mt-2" aria-label={`下载进度 ${pct}%`} />
+                    <Progress value={pct} className="h-1.5 mt-2" aria-label={t("progressAria", { n: pct })} />
                     <div className="mt-1 text-[10px] text-muted-foreground tabular-nums">
                       {formatSize(t.received)}{t.total ? ` / ${formatSize(t.total)}` : ""} · {pct}%
                     </div>
                   </>
                 )}
-                {t.status === "done" && <div className="mt-1 text-[10px] text-muted-foreground">已完成 {formatSize(t.received)}</div>}
-                {t.status === "error" && <div className="mt-1 text-[10px] text-destructive truncate" title={t.error}>{t.error ?? "下载失败"}</div>}
-                {t.status === "cancelled" && <div className="mt-1 text-[10px] text-muted-foreground">已取消</div>}
+                {t.status === "done" && <div className="mt-1 text-[10px] text-muted-foreground">{t("doneSize", { size: formatSize(t.received) })}</div>}
+                {t.status === "error" && <div className="mt-1 text-[10px] text-destructive truncate" title={t.error}>{t.error ?? t("dlFailed")}</div>}
+                {t.status === "cancelled" && <div className="mt-1 text-[10px] text-muted-foreground">{t("cancelled")}</div>}
               </li>
             )
           })}

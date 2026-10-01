@@ -1,4 +1,5 @@
-// 月度目录全量更新（纯 Node/TS 实现，零外部依赖）
+// 目录全量更新（纯 Node/TS 实现，零外部依赖），变更驱动：
+// 调度器每日轻量探测上游 data_version.json 的 ETag，一有变更即触发本模块全量重建。
 //
 // 背景：v1 依赖 python3 scripts/monthly_update.py，但线上 FC 运行环境
 // （/app/next-service-dist）没有 python3，调度器在线上会静默失效（每次失败退避 7 天）。
@@ -60,7 +61,16 @@ interface RawBook {
   container?: string | null
   tag_paths?: string[]
   tag_list?: { tag_dimension_id?: string; tag_name?: string }[]
+  resource_type_code_name?: string
+  global_title?: { "zh-CN"?: string }
+  custom_properties?: {
+    thumbnails?: string[]
+    preview?: Record<string, string>
+  }
 }
+
+/** 资源类型：student=学生教材，teacher=教师用书，resource=课件/指南等文档，thematic=专题课 */
+export type ResType = "student" | "teacher" | "resource" | "thematic"
 
 type Rec = {
   id: string
@@ -72,6 +82,12 @@ type Rec = {
   volume: string
   container: string | null
   revised?: boolean
+  res_type?: ResType
+  /** 无详情接口权限的资源：分片自带的封面缩略图 URL（去 ?v= 参数） */
+  thumb?: string
+  /** 幻灯片阅读：r*-ndr 域名后的公共路径前缀，第 n 页 = https://r1-ndr.ykt.cbern.com.cn/{slides}/{n}.jpg */
+  slides?: string
+  slide_count?: number
 }
 
 export interface UpdateResult {
@@ -124,6 +140,64 @@ function flattenTags(hierarchies: RawTagNode[]): Map<string, { name: string; dim
   return info
 }
 
+// ---- 无标签资源的标题启发式解析（教师用书/课件/指南等，上游不提供标签）----
+
+const CN_NUM: Record<string, number> = {
+  一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9,
+}
+
+/** 长词在前，避免“艺术”截断“艺术·舞蹈”之类 */
+const SUBJECT_WORDS = [
+  "道德与法治", "体育与健康", "信息科技", "心理健康", "语文", "数学", "英语",
+  "物理", "化学", "历史", "地理", "生物", "科学", "音乐", "美术", "艺术", "劳动", "写字", "日语", "俄语",
+]
+
+/** 从标题提取 学段/年级/学科/册次（尽力而为，取不到就留空） */
+function parseTitleMeta(title: string): Pick<Rec, "stage" | "grade" | "subject" | "volume"> {
+  const out = { stage: "", grade: "", subject: "", volume: "" }
+  const range = title.match(/([一二三四五六七八九])至([一二三四五六七八九])年级/)
+  if (range) {
+    out.grade = `${range[1]}至${range[2]}年级`
+    out.stage = CN_NUM[range[1]] >= 7 ? "初中" : "小学"
+  } else {
+    const single = title.match(/([一二三四五六七八九])年级/)
+    if (single) {
+      out.grade = `${single[1]}年级`
+      out.stage = CN_NUM[single[1]] >= 7 ? "初中" : "小学"
+    }
+  }
+  for (const s of SUBJECT_WORDS) {
+    if (title.includes(s)) {
+      out.subject = s
+      break
+    }
+  }
+  if (title.includes("全一册")) out.volume = "全一册"
+  else if (title.includes("上册")) out.volume = "上册"
+  else if (title.includes("下册")) out.volume = "下册"
+  return out
+}
+
+/** 从 custom_properties 提取缩略图与幻灯片路径（公开 CDN，无需鉴权） */
+function extractAssets(b: RawBook): { thumb?: string; slides?: string; slide_count?: number } {
+  const cp = b.custom_properties
+  if (!cp) return {}
+  const out: { thumb?: string; slides?: string; slide_count?: number } = {}
+  const thumb = cp.thumbnails?.find(Boolean)
+  if (thumb) out.thumb = thumb.split("?")[0]
+  const slides = Object.values(cp.preview ?? {}).filter(Boolean) as string[]
+  const first = slides[0]
+  if (first) {
+    // 捕获组必须包含 /transcode/image 尾段（客户端按 {slides}/{n}.jpg 拼页）
+    const m = first.match(/^https:\/\/r\d-ndr\.ykt\.cbern\.com\.cn\/(.+\/transcode\/image)\/\d+\.jpg$/)
+    if (m) {
+      out.slides = m[1]
+      out.slide_count = slides.length
+    }
+  }
+  return out
+}
+
 /** JSON GET：复用 smartedu 的匿名鉴权头 + 超时重试；失败返回 null */
 async function fetchJson<T>(url: string, attempts = 3, timeoutMs = 30000): Promise<T | null> {
   const res = await fetchJsonRetry(url, attempts, timeoutMs)
@@ -161,12 +235,16 @@ async function buildBooks(): Promise<{ books: Rec[]; shardsFailed: number }> {
       continue
     }
     for (const b of part) {
-      if (!b?.tag_paths?.length || seen.has(b.id)) continue
+      if (!b?.id || seen.has(b.id)) continue
       seen.add(b.id)
+      const tagged = !!b.tag_paths?.length
+      const title = (b.global_title?.["zh-CN"] || b.title || b.name || "").trim()
+      const isTeacher = /教师用书|教师教学用书/.test(title)
+      const isThematic = b.resource_type_code_name === "专题课"
       // 字段顺序与 python 版保持一致（id,title,stage,grade,subject,version,volume,container,revised）
       const rec: Rec = {
         id: b.id,
-        title: (b.title || b.name || "").trim(),
+        title,
         stage: "",
         grade: "",
         subject: "",
@@ -174,18 +252,34 @@ async function buildBooks(): Promise<{ books: Rec[]; shardsFailed: number }> {
         volume: "",
         container: b.container ?? null,
       }
-      for (const tid of b.tag_paths[0].split("/")) {
-        const meta = tagInfo.get(tid)
-        if (!meta) continue
-        const field = DIM_NAMES[meta.dim]
-        if (field && !rec[field as keyof Rec]) rec[field as keyof Rec] = meta.name as never
-      }
-      if (!rec.version) {
-        for (const t of b.tag_list ?? []) {
-          if (t.tag_dimension_id === "zxxbb" && t.tag_name) {
-            rec.version = t.tag_name
-            break
+      if (tagged) {
+        for (const tid of b.tag_paths![0].split("/")) {
+          const meta = tagInfo.get(tid)
+          if (!meta) continue
+          const field = DIM_NAMES[meta.dim]
+          if (field && !rec[field as keyof Rec]) rec[field as keyof Rec] = meta.name as never
+        }
+        if (!rec.version) {
+          for (const t of b.tag_list ?? []) {
+            if (t.tag_dimension_id === "zxxbb" && t.tag_name) {
+              rec.version = t.tag_name
+              break
+            }
           }
+        }
+      } else {
+        // 教师用书/课件/教学指南等无标签资源：标题启发式 + 分片自带缩略图/幻灯片
+        Object.assign(rec, parseTitleMeta(title))
+        Object.assign(rec, extractAssets(b))
+      }
+      rec.res_type = tagged ? (isThematic ? "thematic" : isTeacher ? "teacher" : "student") : isTeacher ? "teacher" : "resource"
+      if (rec.res_type !== "student") {
+        // 非学生教材没有可用 PDF，阅读走幻灯片：补充缺失的缩略图/幻灯片
+        const assets = extractAssets(b)
+        if (!rec.thumb && assets.thumb) rec.thumb = assets.thumb
+        if (!rec.slides && assets.slides) {
+          rec.slides = assets.slides
+          rec.slide_count = assets.slide_count
         }
       }
       rec.revised =
@@ -338,9 +432,11 @@ async function doRun(trigger: string): Promise<UpdateResult> {
     result.pruned_covers = await pruneCovers(ids)
 
     result.ok = true
+    const byType = { student: 0, teacher: 0, resource: 0, thematic: 0 }
+    for (const b of books) byType[b.res_type ?? "student"] += 1
     logLine(
-      `更新完成：${result.total} 本（2022修订版 ${result.revised}），新增 ${result.added}，` +
-        `下架 ${result.removed}，分片失败 ${shardsFailed}，清 PDF ${result.cleared_pdfs} 个，裁封面 ${result.pruned_covers} 张`,
+      `更新完成：${result.total} 条（学生教材 ${byType.student}，教师用书 ${byType.teacher}，课件/指南 ${byType.resource}，专题课 ${byType.thematic}；2022修订版 ${result.revised}），` +
+        `新增 ${result.added}，下架 ${result.removed}，分片失败 ${shardsFailed}，清 PDF ${result.cleared_pdfs} 个，裁封面 ${result.pruned_covers} 张`,
     )
   } catch (e) {
     result.error = e instanceof Error ? e.message : String(e)

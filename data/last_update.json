@@ -1,14 +1,14 @@
 {
   "ok": true,
   "trigger": "manual",
-  "total": 2925,
-  "revised": 1776,
-  "added": 15,
-  "removed": 10,
-  "cleared_pdfs": 0,
-  "pruned_covers": 11,
+  "total": 3579,
+  "revised": 1832,
+  "added": 0,
+  "removed": 0,
+  "cleared_pdfs": 1,
+  "pruned_covers": 0,
   "shards_failed": 0,
-  "duration_ms": 1613,
-  "started_at": "2026-10-01 09:21:06",
-  "finished_at": "2026-10-01 09:21:08"
+  "duration_ms": 1556,
+  "started_at": "2026-10-01 10:28:03",
+  "finished_at": "2026-10-01 10:28:04"
 }
