@@ -205,3 +205,27 @@ Stage Summary:
 - 结论：上游不是每月一更，而是不定期批量上架（本次实测 9-29 批量变更）；本站按每 30 天自动同步（凌晨窗口+34 天补跑），最坏滞后约 30 天，对教材场景足够；也可随时手动触发。
 - 仓库已与本地同步（48f7f0c），含最新目录 2925 本。
 - 遗留建议：①next 16.1.3→16.3.8 安全升级（清掉 2 个 high 告警）；②可选优化：scheduler 每小时轻量 HEAD 轮询 data_version.json 的 ETag，变更即触发全量更新（近实时且成本趋零）——均待用户拍板。
+
+---
+Task ID: 11
+Agent: main (Super Z)
+Task: 收录教师用书/课件/专题课 + 每日变更同步 + 英文搜索 + 全站中英 i18n + next 安全升级
+
+Work Log:
+- next 16.1.3→16.3.8（bun update next），基线构建通过。
+- 数据侧探明：额外 654 条资源无 tag_paths/tag_list（details 接口 403），但分片自带 custom_properties.thumbnails + preview 幻灯片（公开 CDN，无 Referer 可访问；实测带任意 Referer 即 403——热链保护）；专题课 325 条有标签但 ti_items 为空（无 PDF），其中 72 条带幻灯片。
+- catalog-update.ts：收录全部条目并加 res_type（student/teacher/resource/thematic，教师用书靠标题判定）；无标签资源按标题启发式解析学段/年级/学科/册次；extractAssets 提取缩略图+幻灯片基路径；重建目录 3579 条（2596/305/353/325，修订版 1832），catalog.json 1.2MB。
+- 调度器重写为变更驱动：每 24h 轻量 GET data_version.json 比对 ETag（状态持久化 data/version_check.json），变更即 runCatalogUpdate("upstream-change")，首次运行只记基线；失败 24h 退避；探针外发 version-check/catalog-updated 事件。
+- cover 路由：details 失败或无封面时回退目录条目 thumb（fetchAndCache 抽取复用）；book 路由：details 403 时用目录条目兜底响应并新增 resType/slidesBase/slideCount 字段。
+- 预览页三模式：pdf（原生/pdf.js 双模式保留）/ slides（新增逐页图文阅读器，直连 403 自动换 /api/proxy，断图截断止渲染）/ none；首页新增类型筛选+类型徽章+非学生资源隐藏下载按钮；详情弹窗无 PDF 时显示"上游未提供源文件"提示。
+- i18n：src/lib/i18n.ts（zh/en 字典约 100 键 + 插值 + 学段/年级/学科标签翻译 + 英文搜索映射）；src/components/textbooks/lang.tsx（LanguageProvider + LangToggle，localStorage 持久化，同步 html.lang）；RootLayout 挂 Provider；page/preview/dialog/tray 全部文案接入。
+- 英文搜索：expandQuery 短语替换（physical education→体育与健康、Grade 9→九年级）+ 单词映射（history→历史等 20 词），token 命中任一候选即通过。
+- 调试排错两连：①幻灯片全 403 → 发现 CDN Referer 热链保护 → img 加 referrerPolicy="no-referrer"；②仍 403 → 抓到 extractAssets 正则贪婪捕获吞掉 /transcode/image 尾段 → 修正则+重建目录；浏览器缓存旧 /api/book 响应干扰排查（close 重启浏览器解决）。
+- 验证：lint 0 错误；build 成功；E2E 全过——英文搜索 history=29/physics=60 命中、类型筛选 60 卡片+徽章+无下载按钮、教师用书弹窗（类型徽章+"上游未提供源文件"+仅在线阅读）、幻灯片 49/49 加载（1332×1885）、学生教材 PDF iframe+Range 206、封面兜底 200 JPEG、EN 切换持久化、零 console 错误。
+- 删除过时 scripts/build_catalog.py、monthly_update.py（防旧格式目录再生成）；README 特性/缓存/项目结构同步更新。
+- 提交推送：48f7f0c..a955136。
+
+Stage Summary:
+- 四项需求全落地：教师用书/课件/专题课全收录（+654 条，带图文阅读）、每日 ETag 变更驱动同步、英文搜索可用、全站中英双语。
+- 仓库已同步（a955136），待用户平台重新部署后线上生效。
+- 注意事项：生产部署后首次启动会记录 ETag 基线（不触发更新）；浏览器对 /api/book 有 5 分钟缓存，目录更新后最多 5 分钟内旧元数据。
