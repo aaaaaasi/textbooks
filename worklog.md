@@ -166,3 +166,23 @@ Stage Summary:
 - 仓库：https://github.com/aaaaaasi/textbooks （public，main 分支，单次完整提交）。
 - 入库范围：项目全部源代码、数据（目录+封面）、脚本、部署配置、文档；排除仅限 node_modules/.next 构建物、教材 PDF（download/*.pdf、data/pdfs/）、平台技能包 /skills/。
 - 安全提示：PAT 系用户在会话中明文提供，建议用后轮换；仓库不含任何密钥（.env 仅为本地 SQLite 路径）。
+
+---
+Task ID: 9
+Agent: main (Super Z)
+Task: 修复线上下载崩溃（getReader locked）与封面 404/断流问题
+
+Work Log:
+- 依用户报障（ERR_INCOMPLETE_CHUNKED_ENCODING ×7 封面、×3 下载、"Failed to execute 'getReader' on 'ReadableStream'"）逐一定位根因：
+  * 下载崩溃：download-client.ts 的 FS 写盘路径中途失败后，blobDownload 对同一已锁定 response.body 二次 getReader() → "ReadableStream is locked"。用户控制台 3 条下载断流正是触发该回退的诱因。
+  * 封面 404：平台本就无封面的教材直接回 404 JSON；封面断流：回源 fetch 无超时、无镜像轮换、无 Content-Length。
+- 重写 src/lib/download-client.ts：一个响应体只允许一个读取器（仅选择器建立失败且流未消费时才复用原响应）；新增 Range 断点续传（state.received 逐块更新，最多 3 次，206 校验）；FS 通道改显式 position 写入；中途失败绝不复用流。
+- src/app/api/download/[id]/route.ts：fetchChunk 增加二轮镜像重试（含 300ms 退避，最多 12 次）；修复 inflight.get() 可能为 undefined 的既有类型隐患。
+- 重写 src/app/api/cover/[id]/route.ts：无封面返回内联 SVG 占位图（200）+ 10 分钟负缓存；details 失败返回 no-store 占位图；回源加 12s 头超时 + r1/r2/r3 轮换；全量缓冲 + 显式 Content-Length。
+- src/lib/pdf-cache.ts：serveFileRange 修正为 async 函数返回 Promise<Response>（修复既有类型错误）。
+- 验证：tsc(src) 0 错误、eslint 0 错误、bun run build 成功；curl 实测化学九上（8c419b19）200 全字节 22372171 一致、%PDF 头/%%EOF 尾完整、Range 206 字节精确；用户报障 7 个封面全部 200（3 SVG 占位 + 4 JPEG）。
+- agent-browser E2E：主页面搜索→点下载→FS 不可用回退 Blob 路径完整跑通，托盘"已完成 21.5 MB"，全程零 console/page 错误；FS AbortError 语义正确保留为"已取消"。
+
+Stage Summary:
+- 三处根因全部修复且实测通过；修复面覆盖下载客户端、下载服务端、封面服务端、pdf-cache 类型。
+- 待用户在平台重新部署后线上生效；代码已随本次提交推送 GitHub（见 Task 9 提交）。

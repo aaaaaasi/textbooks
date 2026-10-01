@@ -65,7 +65,8 @@ async function probeTotalSize(
   return null
 }
 
-/** 拉取一个分块：逐镜像重试，206 + Content-Range 双重校验，防止错块污染。 */
+/** 拉取一个分块：逐镜像重试，206 + Content-Range 双重校验，防止错块污染。
+ *  全部镜像失败后再整轮重试一轮（含退避），只有 CDN 持续不可用才抛错断流。 */
 async function fetchChunk(
   urls: string[],
   start: number,
@@ -73,9 +74,15 @@ async function fetchChunk(
   signal: AbortSignal,
 ): Promise<Uint8Array> {
   let lastErr: unknown = new Error("no attempt")
-  for (let attempt = 0; attempt < urls.length; attempt++) {
+  const rounds = 2
+  for (let attempt = 0; attempt < urls.length * rounds; attempt++) {
+    // 进入第二轮前稍作退避，避开镜像瞬时抖动
+    if (attempt > 0 && attempt % urls.length === 0) {
+      await new Promise((r) => setTimeout(r, 300))
+    }
+    const url = urls[attempt % urls.length]
     try {
-      const res = await fetch(urls[attempt], {
+      const res = await fetch(url, {
         headers: { ...UPSTREAM_HEADERS, Range: `bytes=${start}-${end}` },
         cache: "no-store",
         signal: AbortSignal.any([signal, AbortSignal.timeout(CHUNK_TIMEOUT_MS)]),
@@ -83,7 +90,7 @@ async function fetchChunk(
       const cr = res.headers.get("content-range")
       if (res.status !== 206 || !cr || !cr.startsWith(`bytes ${start}-`)) {
         res.body?.cancel()
-        lastErr = new Error(`镜像 ${new URL(urls[attempt]).hostname} 返回异常 ${res.status}`)
+        lastErr = new Error(`镜像 ${new URL(url).hostname} 返回异常 ${res.status}`)
         continue
       }
       const buf = new Uint8Array(await res.arrayBuffer())
@@ -131,7 +138,9 @@ function parallelPipeline(
       }
       while (inflight.size < PIPELINE_CONCURRENCY && nextToStart < count) startChunk(nextToStart++)
       try {
-        const data = await inflight.get(nextToEmit)
+        const pending = inflight.get(nextToEmit)
+        if (!pending) throw new Error("分块状态丢失")
+        const data = await pending
         inflight.delete(nextToEmit)
         // 写盘失败不应影响下发
         await opts.onChunk?.(data).catch(() => {})

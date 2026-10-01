@@ -149,45 +149,47 @@ export class WriteSession {
  * 按本地文件服务 Range/全量请求（206/200）。
  * base 由调用方给好 Content-Type 等头，这里补齐长度相关头与状态码。
  */
-export function serveFileRange(p: string, range: string | null, base: Record<string, string>): Response {
-  return (async () => {
-    const st = await stat(p)
-    const total = st.size
-    const headers = new Headers(base)
-    headers.set("Accept-Ranges", "bytes")
+export async function serveFileRange(
+  p: string,
+  range: string | null,
+  base: Record<string, string>,
+): Promise<Response> {
+  const st = await stat(p)
+  const total = st.size
+  const headers = new Headers(base)
+  headers.set("Accept-Ranges", "bytes")
 
-    const m = range ? /^bytes=(\d*)-(\d*)$/.exec(range.trim()) : null
-    if (!m) {
-      headers.set("Content-Length", String(total))
-      headers.set("ETag", `"tb-${path.basename(p, ".pdf")}"`)
-      return new Response(Readable.toWeb(createReadStream(p)) as ReadableStream<Uint8Array>, {
-        status: 200,
-        headers,
-      })
-    }
-
-    let start = m[1] === "" ? NaN : parseInt(m[1], 10)
-    let end = m[2] === "" ? NaN : parseInt(m[2], 10)
-    if (Number.isNaN(start)) {
-      // 后缀语义 bytes=-N：最后 N 字节
-      const n = Number.isNaN(end) ? 0 : end
-      start = Math.max(0, total - n)
-      end = total - 1
-    } else {
-      end = Number.isNaN(end) ? total - 1 : Math.min(end, total - 1)
-    }
-    if (start >= total || start > end) {
-      return new Response(null, {
-        status: 416,
-        headers: { "Content-Range": `bytes */${total}` },
-      })
-    }
-    headers.set("Content-Range", `bytes ${start}-${end}/${total}`)
-    headers.set("Content-Length", String(end - start + 1))
+  const m = range ? /^bytes=(\d*)-(\d*)$/.exec(range.trim()) : null
+  if (!m) {
+    headers.set("Content-Length", String(total))
     headers.set("ETag", `"tb-${path.basename(p, ".pdf")}"`)
-    const stream = Readable.toWeb(
-      createReadStream(p, { start, end }),
-    ) as ReadableStream<Uint8Array>
-    return new Response(stream, { status: 206, headers })
-  })()
+    return new Response(Readable.toWeb(createReadStream(p)) as ReadableStream<Uint8Array>, {
+      status: 200,
+      headers,
+    })
+  }
+
+  let start = m[1] === "" ? NaN : parseInt(m[1], 10)
+  let end = m[2] === "" ? NaN : parseInt(m[2], 10)
+  if (Number.isNaN(start)) {
+    // 后缀语义 bytes=-N：最后 N 字节
+    const n = Number.isNaN(end) ? 0 : end
+    start = Math.max(0, total - n)
+    end = total - 1
+  } else {
+    end = Number.isNaN(end) ? total - 1 : Math.min(end, total - 1)
+  }
+  if (start >= total || start > end) {
+    return new Response(null, {
+      status: 416,
+      headers: { "Content-Range": `bytes */${total}` },
+    })
+  }
+  headers.set("Content-Range", `bytes ${start}-${end}/${total}`)
+  headers.set("Content-Length", String(end - start + 1))
+  headers.set("ETag", `"tb-${path.basename(p, ".pdf")}"`)
+  const stream = Readable.toWeb(
+    createReadStream(p, { start, end }),
+  ) as ReadableStream<Uint8Array>
+  return new Response(stream, { status: 206, headers })
 }
